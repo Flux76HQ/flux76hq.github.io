@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flux76 — self-hosted software, built to last</title>
+<meta name="description" content="Flux76 is an indie studio from the Netherlands building self-hosted iOS & web apps you own and run yourself — DiscVault and the VaultStack suite.">
+<meta property="og:title" content="Flux76 — self-hosted software, built to last">
+<meta property="og:description" content="Indie studio building self-hosted iOS & web apps. Build the future — host it yourself.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flux76.com">
+<meta property="og:image" content="https://flux76.com/og-image.png">
+<meta name="theme-color" content="#0B0A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0A18; --ink-2:#12112A; --surface:#171633; --line:#2A284D;
+    --text:#ECEBF6; --muted:#8C8AB0;
+    --aqua:#2FE6D6; --violet:#6C5CE7; --magenta:#FF4D9D;
+    --flux:linear-gradient(90deg,#2FE6D6 0%,#6C5CE7 52%,#FF4D9D 100%);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .grad{background:var(--flux);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,10,24,.72);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:-.5px;text-decoration:none}
+  .brand svg{width:30px;height:30px}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links .cta{color:var(--text);font-weight:500}
+  @media(max-width:640px){.nav-links a:not(.cta){display:none}}
+
+  /* hero */
+  .hero{position:relative;padding:96px 0 88px;overflow:hidden;text-align:center}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(620px 340px at 74% 6%, rgba(255,77,157,.16), transparent 62%),
+    radial-gradient(560px 340px at 16% 20%, rgba(47,230,214,.14), transparent 62%),
+    radial-gradient(760px 460px at 50% 118%, rgba(108,92,231,.20), transparent 60%);
+    pointer-events:none}
+  .hero-in{position:relative;z-index:1}
+  .hero .bigmark{width:88px;height:88px;margin:0 auto 26px;display:block}
+  h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,9vw,88px);letter-spacing:-2.5px;line-height:.98}
+  .lede{font-family:'Space Grotesk';font-weight:500;font-size:clamp(18px,3.6vw,24px);margin:22px auto 0;max-width:32ch;color:var(--text)}
+  .sub{color:var(--muted);margin-top:12px;font-size:15px}
+  .current{position:relative;height:3px;width:min(420px,80%);margin:40px auto 0;border-radius:3px;background:var(--line);overflow:hidden}
+  .current::after{content:"";position:absolute;top:0;left:-40%;height:100%;width:40%;background:var(--flux);animation:flow 3.6s cubic-bezier(.6,0,.4,1) infinite}
+  @keyframes flow{0%{left:-45%}100%{left:105%}}
+  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+  .btn{font-family:'Space Grotesk';font-weight:600;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:12px;transition:transform .15s,box-shadow .2s}
+  .btn-primary{color:#0B0A18;background:linear-gradient(90deg,#2FE6D6,#6C5CE7);box-shadow:0 6px 24px rgba(108,92,231,.35)}
+  .btn-primary:hover{transform:translateY(-2px)}
+  .btn-ghost{color:var(--text);border:1px solid var(--line);background:var(--ink-2)}
+  .btn-ghost:hover{border-color:var(--violet)}
+
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,5vw,34px);letter-spacing:-.8px;margin:14px 0 20px}
+  p.lead{font-size:18px;color:#C7C6DD;max-width:62ch}
+
+  /* projects */
+  .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
+  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+  .proj{background:linear-gradient(180deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:18px;padding:26px;transition:border-color .2s,transform .2s}
+  .proj:hover{border-color:var(--violet);transform:translateY(-3px)}
+  .proj .tag{font-family:'JetBrains Mono';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua)}
+  .proj h3{font-family:'Space Grotesk';font-weight:600;font-size:22px;margin:10px 0 8px}
+  .proj p{color:var(--muted);font-size:15px}
+  .stack{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .pill{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+  .vaultnote{margin-top:22px;font-size:15px;color:#C7C6DD;border-left:2px solid transparent;border-image:var(--flux) 1;padding-left:16px}
+
+  /* principles */
+  .princ{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+  @media(min-width:720px){.princ{grid-template-columns:1fr 1fr}}
+  .p{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--ink-2)}
+  .p .k{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:6px}
+  .p .k span{color:var(--aqua)}
+  .p p{color:var(--muted);font-size:14px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:56px 0 60px}
+  .foot{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+  .foot .brand{margin-bottom:10px}
+  .foot-links{display:flex;gap:44px;flex-wrap:wrap}
+  .col h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .col a{display:block;font-size:14px;color:#C7C6DD;text-decoration:none;padding:4px 0;transition:color .2s}
+  .col a:hover{color:var(--aqua)}
+  .copyright{margin-top:40px;font-family:'JetBrains Mono';font-size:12px;color:var(--muted)}
+
+  :focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){.current::after{animation:none;left:0;width:100%}.btn:hover,.proj:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2FE6D6"/><stop offset=".5" stop-color="#6C5CE7"/><stop offset="1" stop-color="#FF4D9D"/></linearGradient>
+</defs></svg>
+
+<nav><div class="wrap nav-in">
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 80 80" fill="none"><path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="6" stroke-linecap="round"/><circle cx="40" cy="44" r="6" fill="#ECEBF6"/><circle cx="40" cy="16" r="4.6" fill="#2FE6D6"/><circle cx="20" cy="68" r="4.6" fill="#6C5CE7"/><circle cx="60" cy="68" r="4.6" fill="#FF4D9D"/></svg>
+    Flux<span class="grad">76</span>
+  </a>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#philosophy">Philosophy</a>
+    <a class="cta" href="https://github.com/Flux76HQ">GitHub ↗</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap hero-in">
+  <svg class="bigmark" viewBox="0 0 80 80" fill="none" aria-label="Flux76">
+    <circle cx="40" cy="40" r="37" stroke="url(#fg)" stroke-width="2.4" opacity=".35"/>
+    <path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="5.4" stroke-linecap="round"/>
+    <circle cx="40" cy="44" r="6" fill="url(#fg)"/><circle cx="40" cy="16" r="4.6" fill="#2FE6D6"/><circle cx="20" cy="68" r="4.6" fill="#6C5CE7"/><circle cx="60" cy="68" r="4.6" fill="#FF4D9D"/>
+  </svg>
+  <h1>Self-hosted software,<br>built to <span class="grad">last</span>.</h1>
+  <p class="lede">Indie studio from the Netherlands, building iOS &amp; web apps you own and run yourself.</p>
+  <p class="sub mono">no cloud lock-in · your data · your hardware</p>
+  <div class="current" role="presentation"></div>
+  <div class="btns">
+    <a class="btn btn-primary" href="#projects">Explore the apps</a>
+    <a class="btn btn-ghost" href="https://github.com/Flux76HQ">View on GitHub</a>
+  </div>
+</div></header>
+
+<main>
+  <section id="what"><div class="wrap">
+    <div class="eyebrow">The idea</div>
+    <h2>You run it. You own it.</h2>
+    <p class="lead">Flux76 builds self-hosted media &amp; utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.</p>
+  </div></section>
+
+  <section id="projects"><div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2>The VaultStack suite</h2>
+    <div class="grid">
+      <div class="proj">
+        <div class="tag">Physical media</div>
+        <h3>DiscVault</h3>
+        <p>Manage your physical disc collection — 4K UHD, Blu-ray &amp; DVD — with a native iOS app, a PWA and a self-hosted Docker backend.</p>
+        <div class="stack"><span class="pill">SwiftUI</span><span class="pill">PWA</span><span class="pill">Docker</span></div>
+      </div>
+      <div class="proj">
+        <div class="tag">Metadata</div>
+        <h3>MovieVault</h3>
+        <p>Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.</p>
+        <div class="stack"><span class="pill">API</span><span class="pill">Docker</span></div>
+      </div>
+      <div class="proj">
+        <div class="tag">Insights</div>
+        <h3>WatchVault</h3>
+        <p>Multi-user streaming &amp; watch statistics — see what your household actually watches, without handing the data to anyone.</p>
+        <div class="stack"><span class="pill">Web</span><span class="pill">Docker</span></div>
+      </div>
+    </div>
+    <p class="vaultnote">Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.</p>
+  </div></section>
+
+  <section id="philosophy"><div class="wrap">
+    <div class="eyebrow">Philosophy</div>
+    <h2>Built to last, not to rent.</h2>
+    <div class="princ">
+      <div class="p"><div class="k"><span>01</span> · Self-hosted first</div><p>Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.</p></div>
+      <div class="p"><div class="k"><span>02</span> · Privacy by default</div><p>No tracking, no data selling, no surprise cloud sync. Ever.</p></div>
+      <div class="p"><div class="k"><span>03</span> · Native + web</div><p>SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.</p></div>
+      <div class="p"><div class="k"><span>04</span> · Long-term thinking</div><p>Year-versioned releases and clear upgrade paths — software you can keep.</p></div>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div>
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 80 80" fill="none" width="30" height="30"><path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="6" stroke-linecap="round"/><circle cx="40" cy="44" r="6" fill="#ECEBF6"/></svg>
+        Flux<span class="grad">76</span>
+      </a>
+      <p class="mono" style="color:var(--muted);font-size:13px;max-width:30ch">Build the future — host it yourself.</p>
+    </div>
+    <div class="foot-links">
+      <div class="col">
+        <h4>Apps</h4>
+        <a href="https://flux76.app">flux76.app</a>
+        <a href="#projects">DiscVault</a>
+        <a href="#projects">VaultStack suite</a>
+      </div>
+      <div class="col">
+        <h4>Code</h4>
+        <a href="https://github.com/Flux76HQ">GitHub · Flux76HQ</a>
+      </div>
+      <div class="col">
+        <h4>Contact</h4>
+        <a href="mailto:info@flux76.com">info@flux76.com</a>
+        <a href="https://bsky.app/">Bluesky</a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">© <span id="yr"></span> Flux76 · self-hosted software · Netherlands</div>
+</div></footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
