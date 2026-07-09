@@ -48,15 +48,15 @@
   .lang-btn{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:border-color .2s,color .2s}
   .lang-btn:hover{color:var(--text);border-color:var(--violet)}
   .lang-btn svg{flex:none}
-  .lang-btn .globe{width:15px;height:15px}
   .lang-btn .chev{width:11px;height:11px;transition:transform .2s;opacity:.7}
+  .flag{width:24px;height:16px;border-radius:3px;overflow:hidden;flex:none;display:block;line-height:0;box-shadow:0 0 0 1px rgba(255,255,255,.14) inset}
+  .flag svg{width:100%;height:100%;display:block}
   .lang.open .lang-btn .chev{transform:rotate(180deg)}
   .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:172px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;list-style:none;box-shadow:0 14px 38px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60}
   .lang.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
-  .lang-menu li{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Inter',sans-serif;font-size:14px;color:#C7C6DD;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  .lang-menu li{display:flex;align-items:center;justify-content:flex-start;gap:11px;font-family:'Inter',sans-serif;font-size:14px;color:#C7C6DD;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
   .lang-menu li:hover{background:var(--ink-2);color:var(--text)}
   .lang-menu li[aria-selected="true"]{color:var(--aqua)}
-  .lang-menu li .code{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);letter-spacing:1px}
 
   /* hero */
   .hero{position:relative;padding:96px 0 88px;overflow:hidden;text-align:center}
@@ -135,15 +135,14 @@
     <a class="cta" href="https://github.com/Flux76HQ">GitHub ↗</a>
     <div class="lang" id="lang">
       <button class="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
-        <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-        <span id="lang-current">EN</span>
+        <span class="flag" id="lang-flag"></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <ul class="lang-menu" role="listbox" aria-label="Choose language">
-        <li role="option" data-lang="nl">Nederlands <span class="code">NL</span></li>
-        <li role="option" data-lang="en">English <span class="code">EN</span></li>
-        <li role="option" data-lang="de">Deutsch <span class="code">DE</span></li>
-        <li role="option" data-lang="fr">Français <span class="code">FR</span></li>
+        <li role="option" data-lang="nl">Nederlands</li>
+        <li role="option" data-lang="en">English</li>
+        <li role="option" data-lang="de">Deutsch</li>
+        <li role="option" data-lang="fr">Français</li>
       </ul>
     </div>
   </div>
@@ -371,7 +370,13 @@ const I18N = {
   }
 };
 
-const LANG_CODES = { nl:"NL", en:"EN", de:"DE", fr:"FR" };
+/* SVG flags (rounded via .flag wrapper; en = United Kingdom) */
+const FLAGS = {
+  nl:`<svg viewBox="0 0 24 16" preserveAspectRatio="none"><rect width="24" height="16" fill="#fff"/><rect width="24" height="5.34" fill="#AE1C28"/><rect y="10.66" width="24" height="5.34" fill="#21468B"/></svg>`,
+  en:`<svg viewBox="0 0 60 40" preserveAspectRatio="none"><rect width="60" height="40" fill="#012169"/><path d="M0,0 60,40M60,0 0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 60,40M60,0 0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0V40M0,20H60" stroke="#fff" stroke-width="12"/><path d="M30,0V40M0,20H60" stroke="#C8102E" stroke-width="7"/></svg>`,
+  de:`<svg viewBox="0 0 24 16" preserveAspectRatio="none"><rect width="24" height="16" fill="#000"/><rect y="5.34" width="24" height="5.34" fill="#DD0000"/><rect y="10.66" width="24" height="5.34" fill="#FFCE00"/></svg>`,
+  fr:`<svg viewBox="0 0 24 16" preserveAspectRatio="none"><rect width="24" height="16" fill="#fff"/><rect width="8" height="16" fill="#0055A4"/><rect x="16" width="8" height="16" fill="#EF4135"/></svg>`
+};
 const STORE_KEY = "flux76_lang";
 
 function pickLang(){
@@ -399,8 +404,8 @@ function applyLang(lang){
     const v = t[el.dataset.i18nHtml]; if(v != null) el.innerHTML = v;
   });
 
-  const cur = document.getElementById("lang-current");
-  if(cur) cur.textContent = LANG_CODES[lang] || lang.toUpperCase();
+  const curFlag = document.getElementById("lang-flag");
+  if(curFlag) curFlag.innerHTML = FLAGS[lang] || "";
   document.querySelectorAll(".lang-menu li").forEach(li=>{
     li.setAttribute("aria-selected", String(li.dataset.lang === lang));
   });
@@ -411,6 +416,11 @@ function applyLang(lang){
 (function initLangSwitcher(){
   const lang = document.getElementById("lang");
   const btn = lang.querySelector(".lang-btn");
+  lang.querySelectorAll(".lang-menu li").forEach(li=>{
+    const f = document.createElement("span");
+    f.className = "flag"; f.innerHTML = FLAGS[li.dataset.lang] || "";
+    li.prepend(f);
+  });
   const close = () => { lang.classList.remove("open"); btn.setAttribute("aria-expanded","false"); };
   btn.addEventListener("click", e => {
     e.stopPropagation();
