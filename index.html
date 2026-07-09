@@ -41,7 +41,22 @@
   .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
   .nav-links a:hover{color:var(--text)}
   .nav-links .cta{color:var(--text);font-weight:500}
-  @media(max-width:640px){.nav-links a:not(.cta){display:none}}
+  @media(max-width:640px){.nav-links a:not(.cta){display:none}.nav-links{gap:16px}}
+
+  /* language switcher */
+  .lang{position:relative}
+  .lang-btn{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:border-color .2s,color .2s}
+  .lang-btn:hover{color:var(--text);border-color:var(--violet)}
+  .lang-btn svg{flex:none}
+  .lang-btn .globe{width:15px;height:15px}
+  .lang-btn .chev{width:11px;height:11px;transition:transform .2s;opacity:.7}
+  .lang.open .lang-btn .chev{transform:rotate(180deg)}
+  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:172px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;list-style:none;box-shadow:0 14px 38px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60}
+  .lang.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
+  .lang-menu li{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Inter',sans-serif;font-size:14px;color:#C7C6DD;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  .lang-menu li:hover{background:var(--ink-2);color:var(--text)}
+  .lang-menu li[aria-selected="true"]{color:var(--aqua)}
+  .lang-menu li .code{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);letter-spacing:1px}
 
   /* hero */
   .hero{position:relative;padding:96px 0 88px;overflow:hidden;text-align:center}
@@ -53,7 +68,7 @@
   .hero-in{position:relative;z-index:1}
   .hero .bigmark{width:88px;height:88px;margin:0 auto 26px;display:block}
   h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,9vw,88px);letter-spacing:-2.5px;line-height:.98}
-  .lede{font-family:'Space Grotesk';font-weight:500;font-size:clamp(18px,3.6vw,24px);margin:22px auto 0;max-width:32ch;color:var(--text)}
+  .lede{font-family:'Space Grotesk';font-weight:500;font-size:clamp(18px,3.6vw,24px);margin:22px auto 0;max-width:34ch;color:var(--text)}
   .sub{color:var(--muted);margin-top:12px;font-size:15px}
   .current{position:relative;height:3px;width:min(420px,80%);margin:40px auto 0;border-radius:3px;background:var(--line);overflow:hidden}
   .current::after{content:"";position:absolute;top:0;left:-40%;height:100%;width:40%;background:var(--flux);animation:flow 3.6s cubic-bezier(.6,0,.4,1) infinite}
@@ -115,9 +130,22 @@
     Flux<span class="grad">76</span>
   </a>
   <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="#philosophy">Philosophy</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="#philosophy" data-i18n="nav_philosophy">Philosophy</a>
     <a class="cta" href="https://github.com/Flux76HQ">GitHub ↗</a>
+    <div class="lang" id="lang">
+      <button class="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        <span id="lang-current">EN</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="lang-menu" role="listbox" aria-label="Choose language">
+        <li role="option" data-lang="nl">Nederlands <span class="code">NL</span></li>
+        <li role="option" data-lang="en">English <span class="code">EN</span></li>
+        <li role="option" data-lang="de">Deutsch <span class="code">DE</span></li>
+        <li role="option" data-lang="fr">Français <span class="code">FR</span></li>
+      </ul>
+    </div>
   </div>
 </div></nav>
 
@@ -127,57 +155,57 @@
     <path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="5.4" stroke-linecap="round"/>
     <circle cx="40" cy="44" r="6" fill="url(#fg)"/><circle cx="40" cy="16" r="4.6" fill="#2FE6D6"/><circle cx="20" cy="68" r="4.6" fill="#6C5CE7"/><circle cx="60" cy="68" r="4.6" fill="#FF4D9D"/>
   </svg>
-  <h1>Self-hosted software,<br>built to <span class="grad">last</span>.</h1>
-  <p class="lede">Indie studio from the Netherlands, building iOS &amp; web apps you own and run yourself.</p>
-  <p class="sub mono">no cloud lock-in · your data · your hardware</p>
+  <h1 data-i18n-html="hero_h1">Self-hosted software,<br>built to <span class="grad">last</span>.</h1>
+  <p class="lede" data-i18n="hero_lede">Indie studio from the Netherlands, building iOS &amp; web apps you own and run yourself.</p>
+  <p class="sub mono" data-i18n="hero_sub">no cloud lock-in · your data · your hardware</p>
   <div class="current" role="presentation"></div>
   <div class="btns">
-    <a class="btn btn-primary" href="#projects">Explore the apps</a>
-    <a class="btn btn-ghost" href="https://github.com/Flux76HQ">View on GitHub</a>
+    <a class="btn btn-primary" href="#projects" data-i18n="hero_btn1">Explore the apps</a>
+    <a class="btn btn-ghost" href="https://github.com/Flux76HQ" data-i18n="hero_btn2">View on GitHub</a>
   </div>
 </div></header>
 
 <main>
   <section id="what"><div class="wrap">
-    <div class="eyebrow">The idea</div>
-    <h2>You run it. You own it.</h2>
-    <p class="lead">Flux76 builds self-hosted media &amp; utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.</p>
+    <div class="eyebrow" data-i18n="what_eyebrow">The idea</div>
+    <h2 data-i18n="what_h2">You run it. You own it.</h2>
+    <p class="lead" data-i18n="what_lead">Flux76 builds self-hosted media &amp; utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.</p>
   </div></section>
 
   <section id="projects"><div class="wrap">
-    <div class="eyebrow">Projects</div>
-    <h2>The VaultStack suite</h2>
+    <div class="eyebrow" data-i18n="proj_eyebrow">Projects</div>
+    <h2 data-i18n="proj_h2">The VaultStack suite</h2>
     <div class="grid">
       <div class="proj">
-        <div class="tag">Physical media</div>
+        <div class="tag" data-i18n="proj_disc_tag">Physical media</div>
         <h3>DiscVault</h3>
-        <p>Manage your physical disc collection — 4K UHD, Blu-ray &amp; DVD — with a native iOS app, a PWA and a self-hosted Docker backend.</p>
+        <p data-i18n="proj_disc_p">Manage your physical disc collection — 4K UHD, Blu-ray &amp; DVD — with a native iOS app, a PWA and a self-hosted Docker backend.</p>
         <div class="stack"><span class="pill">SwiftUI</span><span class="pill">PWA</span><span class="pill">Docker</span></div>
       </div>
       <div class="proj">
-        <div class="tag">Metadata</div>
+        <div class="tag" data-i18n="proj_movie_tag">Metadata</div>
         <h3>MovieVault</h3>
-        <p>Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.</p>
+        <p data-i18n="proj_movie_p">Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.</p>
         <div class="stack"><span class="pill">API</span><span class="pill">Docker</span></div>
       </div>
       <div class="proj">
-        <div class="tag">Insights</div>
+        <div class="tag" data-i18n="proj_watch_tag">Insights</div>
         <h3>WatchVault</h3>
-        <p>Multi-user streaming &amp; watch statistics — see what your household actually watches, without handing the data to anyone.</p>
+        <p data-i18n="proj_watch_p">Multi-user streaming &amp; watch statistics — see what your household actually watches, without handing the data to anyone.</p>
         <div class="stack"><span class="pill">Web</span><span class="pill">Docker</span></div>
       </div>
     </div>
-    <p class="vaultnote">Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.</p>
+    <p class="vaultnote" data-i18n="proj_note">Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.</p>
   </div></section>
 
   <section id="philosophy"><div class="wrap">
-    <div class="eyebrow">Philosophy</div>
-    <h2>Built to last, not to rent.</h2>
+    <div class="eyebrow" data-i18n="phil_eyebrow">Philosophy</div>
+    <h2 data-i18n="phil_h2">Built to last, not to rent.</h2>
     <div class="princ">
-      <div class="p"><div class="k"><span>01</span> · Self-hosted first</div><p>Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.</p></div>
-      <div class="p"><div class="k"><span>02</span> · Privacy by default</div><p>No tracking, no data selling, no surprise cloud sync. Ever.</p></div>
-      <div class="p"><div class="k"><span>03</span> · Native + web</div><p>SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.</p></div>
-      <div class="p"><div class="k"><span>04</span> · Long-term thinking</div><p>Year-versioned releases and clear upgrade paths — software you can keep.</p></div>
+      <div class="p"><div class="k"><span>01</span> · <span data-i18n="phil_1_k">Self-hosted first</span></div><p data-i18n="phil_1_p">Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.</p></div>
+      <div class="p"><div class="k"><span>02</span> · <span data-i18n="phil_2_k">Privacy by default</span></div><p data-i18n="phil_2_p">No tracking, no data selling, no surprise cloud sync. Ever.</p></div>
+      <div class="p"><div class="k"><span>03</span> · <span data-i18n="phil_3_k">Native + web</span></div><p data-i18n="phil_3_p">SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.</p></div>
+      <div class="p"><div class="k"><span>04</span> · <span data-i18n="phil_4_k">Long-term thinking</span></div><p data-i18n="phil_4_p">Year-versioned releases and clear upgrade paths — software you can keep.</p></div>
     </div>
   </div></section>
 </main>
@@ -189,29 +217,215 @@
         <svg viewBox="0 0 80 80" fill="none" width="30" height="30"><path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="6" stroke-linecap="round"/><circle cx="40" cy="44" r="6" fill="#ECEBF6"/></svg>
         Flux<span class="grad">76</span>
       </a>
-      <p class="mono" style="color:var(--muted);font-size:13px;max-width:30ch">Build the future — host it yourself.</p>
+      <p class="mono" style="color:var(--muted);font-size:13px;max-width:32ch" data-i18n="foot_tagline">Build the future — host it yourself.</p>
     </div>
     <div class="foot-links">
       <div class="col">
-        <h4>Apps</h4>
+        <h4 data-i18n="foot_apps">Apps</h4>
         <a href="https://flux76.app">flux76.app</a>
         <a href="#projects">DiscVault</a>
         <a href="#projects">VaultStack suite</a>
       </div>
       <div class="col">
-        <h4>Code</h4>
+        <h4 data-i18n="foot_code">Code</h4>
         <a href="https://github.com/Flux76HQ">GitHub · Flux76HQ</a>
       </div>
       <div class="col">
-        <h4>Contact</h4>
+        <h4 data-i18n="foot_social">Social</h4>
+        <a href="https://bsky.app/profile/flux76hq.bsky.social">Bluesky</a>
+        <a href="https://instagram.com/flux76hq">Instagram</a>
+        <a href="https://www.threads.net/@flux76hq">Threads</a>
+      </div>
+      <div class="col">
+        <h4 data-i18n="foot_contact">Contact</h4>
         <a href="mailto:info@flux76.com">info@flux76.com</a>
-        <a href="https://bsky.app/">Bluesky</a>
       </div>
     </div>
   </div>
-  <div class="copyright">© <span id="yr"></span> Flux76 · self-hosted software · Netherlands</div>
+  <div class="copyright">© <span id="yr"></span> Flux76 · <span data-i18n="foot_copyright">self-hosted software · Netherlands</span></div>
 </div></footer>
 
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+/* ── i18n ───────────────────────────────────────────────────────────────
+   Add a language:
+     1) add an entry to I18N below (copy an existing block, translate values)
+     2) add one <li role="option" data-lang="xx"> to the .lang-menu in the nav
+   Every visible string is keyed by a data-i18n / data-i18n-html attribute.
+──────────────────────────────────────────────────────────────────────── */
+const I18N = {
+  en: {
+    meta_title:"Flux76 — self-hosted software, built to last",
+    meta_desc:"Flux76 is an indie studio from the Netherlands building self-hosted iOS & web apps you own and run yourself — DiscVault and the VaultStack suite.",
+    og_title:"Flux76 — self-hosted software, built to last",
+    og_desc:"Indie studio building self-hosted iOS & web apps. Build the future — host it yourself.",
+    nav_projects:"Projects", nav_philosophy:"Philosophy",
+    hero_h1:'Self-hosted software,<br>built to <span class="grad">last</span>.',
+    hero_lede:"Indie studio from the Netherlands, building iOS & web apps you own and run yourself.",
+    hero_sub:"no cloud lock-in · your data · your hardware",
+    hero_btn1:"Explore the apps", hero_btn2:"View on GitHub",
+    what_eyebrow:"The idea", what_h2:"You run it. You own it.",
+    what_lead:"Flux76 builds self-hosted media & utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.",
+    proj_eyebrow:"Projects", proj_h2:"The VaultStack suite",
+    proj_disc_tag:"Physical media",
+    proj_disc_p:"Manage your physical disc collection — 4K UHD, Blu-ray & DVD — with a native iOS app, a PWA and a self-hosted Docker backend.",
+    proj_movie_tag:"Metadata",
+    proj_movie_p:"Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.",
+    proj_watch_tag:"Insights",
+    proj_watch_p:"Multi-user streaming & watch statistics — see what your household actually watches, without handing the data to anyone.",
+    proj_note:"Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.",
+    phil_eyebrow:"Philosophy", phil_h2:"Built to last, not to rent.",
+    phil_1_k:"Self-hosted first", phil_1_p:"Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.",
+    phil_2_k:"Privacy by default", phil_2_p:"No tracking, no data selling, no surprise cloud sync. Ever.",
+    phil_3_k:"Native + web", phil_3_p:"SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.",
+    phil_4_k:"Long-term thinking", phil_4_p:"Year-versioned releases and clear upgrade paths — software you can keep.",
+    foot_tagline:"Build the future — host it yourself.",
+    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
+    foot_copyright:"self-hosted software · Netherlands"
+  },
+  nl: {
+    meta_title:"Flux76 — zelf-gehoste software, gebouwd om te blijven",
+    meta_desc:"Flux76 is een indie-studio uit Nederland die zelf-gehoste iOS- & webapps bouwt die je zelf bezit en draait — DiscVault en de VaultStack-suite.",
+    og_title:"Flux76 — zelf-gehoste software, gebouwd om te blijven",
+    og_desc:"Indie-studio die zelf-gehoste iOS- & webapps bouwt. Bouw de toekomst — host het zelf.",
+    nav_projects:"Projecten", nav_philosophy:"Filosofie",
+    hero_h1:'Zelf-gehoste software,<br>gebouwd om te <span class="grad">blijven</span>.',
+    hero_lede:"Indie-studio uit Nederland die iOS- & webapps bouwt die je zelf bezit en draait.",
+    hero_sub:"geen cloud-lock-in · jouw data · jouw hardware",
+    hero_btn1:"Bekijk de apps", hero_btn2:"Bekijk op GitHub",
+    what_eyebrow:"Het idee", what_h2:"Jij draait het. Jij bezit het.",
+    what_lead:"Flux76 bouwt zelf-gehoste media- & hulpprogramma's voor mensen die hun data graag dichtbij houden. Geen accounts waar jij geen controle over hebt, geen onverwachte cloud-sync — jij draait de backend, de apps praten ermee, en alles blijft op jouw infrastructuur. Native waar het telt, een PWA waar je bereik wilt, en een strakke Docker-backend eronder.",
+    proj_eyebrow:"Projecten", proj_h2:"De VaultStack-suite",
+    proj_disc_tag:"Fysieke media",
+    proj_disc_p:"Beheer je fysieke schijvencollectie — 4K UHD, Blu-ray & DVD — met een native iOS-app, een PWA en een zelf-gehoste Docker-backend.",
+    proj_movie_tag:"Metadata",
+    proj_movie_p:"Rijke filmmetadata en release-herkenning — barcode/EAN-matching en editie-koppeling — die de rest van de suite voedt.",
+    proj_watch_tag:"Inzichten",
+    proj_watch_p:"Streaming- & kijkstatistieken voor meerdere gebruikers — zie wat je huishouden écht kijkt, zonder de data aan iemand af te staan.",
+    proj_note:"Samen vormen ze een klein ecosysteem van zelf-gehoste apps die data delen en buiten de cloud blijven.",
+    phil_eyebrow:"Filosofie", phil_h2:"Gebouwd om te blijven, niet om te huren.",
+    phil_1_k:"Self-hosted eerst", phil_1_p:"Je data staat op jouw hardware — Unraid, Docker, een Raspberry Pi, wat je maar wilt.",
+    phil_2_k:"Privacy standaard", phil_2_p:"Geen tracking, geen dataverkoop, geen onverwachte cloud-sync. Nooit.",
+    phil_3_k:"Native + web", phil_3_p:"SwiftUI-apps voor iOS, PWA's voor de rest, één backend erachter.",
+    phil_4_k:"Langetermijndenken", phil_4_p:"Releases per jaartal en duidelijke upgradepaden — software die je kunt houden.",
+    foot_tagline:"Bouw de toekomst — host het zelf.",
+    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
+    foot_copyright:"zelf-gehoste software · Nederland"
+  },
+  de: {
+    meta_title:"Flux76 — selbstgehostete Software, gebaut, um zu bleiben",
+    meta_desc:"Flux76 ist ein Indie-Studio aus den Niederlanden, das selbstgehostete iOS- & Web-Apps baut, die dir gehören und die du selbst betreibst — DiscVault und die VaultStack-Suite.",
+    og_title:"Flux76 — selbstgehostete Software, gebaut, um zu bleiben",
+    og_desc:"Indie-Studio, das selbstgehostete iOS- & Web-Apps baut. Bau die Zukunft — hoste sie selbst.",
+    nav_projects:"Projekte", nav_philosophy:"Philosophie",
+    hero_h1:'Selbstgehostete Software,<br>gebaut, um zu <span class="grad">bleiben</span>.',
+    hero_lede:"Indie-Studio aus den Niederlanden, das iOS- & Web-Apps baut, die dir gehören und die du selbst betreibst.",
+    hero_sub:"kein Cloud-Lock-in · deine Daten · deine Hardware",
+    hero_btn1:"Apps entdecken", hero_btn2:"Auf GitHub ansehen",
+    what_eyebrow:"Die Idee", what_h2:"Du betreibst es. Du besitzt es.",
+    what_lead:"Flux76 baut selbstgehostete Medien- & Werkzeug-Apps für Menschen, die ihre Daten gern nah bei sich behalten. Keine Konten, die du nicht kontrollierst, keine überraschende Cloud-Synchronisierung — du betreibst das Backend, die Apps sprechen damit, und alles bleibt auf deiner Infrastruktur. Nativ, wo es zählt, eine PWA, wo du Reichweite willst, und ein sauberes Docker-Backend darunter.",
+    proj_eyebrow:"Projekte", proj_h2:"Die VaultStack-Suite",
+    proj_disc_tag:"Physische Medien",
+    proj_disc_p:"Verwalte deine physische Disc-Sammlung — 4K UHD, Blu-ray & DVD — mit einer nativen iOS-App, einer PWA und einem selbstgehosteten Docker-Backend.",
+    proj_movie_tag:"Metadaten",
+    proj_movie_p:"Umfangreiche Film-Metadaten und Release-Erkennung — Barcode/EAN-Abgleich und Editions-Verknüpfung — die den Rest der Suite speisen.",
+    proj_watch_tag:"Einblicke",
+    proj_watch_p:"Streaming- & Sehstatistiken für mehrere Nutzer — sieh, was dein Haushalt wirklich schaut, ohne die Daten irgendjemandem zu überlassen.",
+    proj_note:"Zusammen bilden sie ein kleines Ökosystem selbstgehosteter Apps, die Daten teilen und außerhalb der Cloud bleiben.",
+    phil_eyebrow:"Philosophie", phil_h2:"Gebaut, um zu bleiben — nicht zum Mieten.",
+    phil_1_k:"Selbstgehostet zuerst", phil_1_p:"Deine Daten liegen auf deiner Hardware — Unraid, Docker, ein Raspberry Pi, was immer du magst.",
+    phil_2_k:"Privatsphäre von Haus aus", phil_2_p:"Kein Tracking, kein Datenverkauf, keine überraschende Cloud-Sync. Niemals.",
+    phil_3_k:"Nativ + Web", phil_3_p:"SwiftUI-Apps für iOS, PWAs für überall sonst, ein Backend dahinter.",
+    phil_4_k:"Langfristig gedacht", phil_4_p:"Nach Jahr versionierte Releases und klare Upgrade-Pfade — Software, die du behalten kannst.",
+    foot_tagline:"Bau die Zukunft — hoste sie selbst.",
+    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Kontakt",
+    foot_copyright:"selbstgehostete Software · Niederlande"
+  },
+  fr: {
+    meta_title:"Flux76 — logiciels auto-hébergés, conçus pour durer",
+    meta_desc:"Flux76 est un studio indépendant des Pays-Bas qui conçoit des applis iOS & web auto-hébergées que vous possédez et hébergez vous-même — DiscVault et la suite VaultStack.",
+    og_title:"Flux76 — logiciels auto-hébergés, conçus pour durer",
+    og_desc:"Studio indépendant qui conçoit des applis iOS & web auto-hébergées. Construisez l'avenir — hébergez-le vous-même.",
+    nav_projects:"Projets", nav_philosophy:"Philosophie",
+    hero_h1:'Des logiciels auto-hébergés,<br>conçus pour <span class="grad">durer</span>.',
+    hero_lede:"Studio indépendant des Pays-Bas qui conçoit des applis iOS & web que vous possédez et hébergez vous-même.",
+    hero_sub:"pas de dépendance au cloud · vos données · votre matériel",
+    hero_btn1:"Découvrir les applis", hero_btn2:"Voir sur GitHub",
+    what_eyebrow:"L'idée", what_h2:"Vous l'hébergez. Vous le possédez.",
+    what_lead:"Flux76 conçoit des applis multimédias & utilitaires auto-hébergées pour ceux qui aiment garder leurs données près d'eux. Pas de comptes que vous ne contrôlez pas, pas de synchronisation cloud surprise — vous hébergez le backend, les applis communiquent avec lui, et tout reste sur votre infrastructure. Natif là où ça compte, une PWA là où vous voulez de la portée, et un backend Docker soigné en dessous.",
+    proj_eyebrow:"Projets", proj_h2:"La suite VaultStack",
+    proj_disc_tag:"Médias physiques",
+    proj_disc_p:"Gérez votre collection de disques physiques — 4K UHD, Blu-ray & DVD — avec une appli iOS native, une PWA et un backend Docker auto-hébergé.",
+    proj_movie_tag:"Métadonnées",
+    proj_movie_p:"Métadonnées de films riches et résolution des éditions — correspondance code-barres/EAN et liaison des éditions — qui alimentent le reste de la suite.",
+    proj_watch_tag:"Analyses",
+    proj_watch_p:"Statistiques de streaming & de visionnage multi-utilisateurs — voyez ce que votre foyer regarde vraiment, sans confier les données à personne.",
+    proj_note:"Ensemble, elles forment un petit écosystème d'applis auto-hébergées qui partagent leurs données et restent hors du cloud.",
+    phil_eyebrow:"Philosophie", phil_h2:"Conçu pour durer, pas pour être loué.",
+    phil_1_k:"L'auto-hébergement d'abord", phil_1_p:"Vos données vivent sur votre matériel — Unraid, Docker, un Raspberry Pi, comme vous voulez.",
+    phil_2_k:"Confidentialité par défaut", phil_2_p:"Pas de pistage, pas de revente de données, pas de synchro cloud surprise. Jamais.",
+    phil_3_k:"Natif + web", phil_3_p:"Des applis SwiftUI pour iOS, des PWA pour tout le reste, un seul backend derrière.",
+    phil_4_k:"Une vision à long terme", phil_4_p:"Des versions millésimées et des chemins de mise à jour clairs — un logiciel que vous pouvez garder.",
+    foot_tagline:"Construisez l'avenir — hébergez-le vous-même.",
+    foot_apps:"Applis", foot_code:"Code", foot_social:"Réseaux", foot_contact:"Contact",
+    foot_copyright:"logiciels auto-hébergés · Pays-Bas"
+  }
+};
+
+const LANG_CODES = { nl:"NL", en:"EN", de:"DE", fr:"FR" };
+const STORE_KEY = "flux76_lang";
+
+function pickLang(){
+  const q = new URLSearchParams(location.search).get("lang");
+  const stored = (function(){ try { return localStorage.getItem(STORE_KEY); } catch(e){ return null; } })();
+  const nav = (navigator.language || "en").slice(0,2).toLowerCase();
+  const ok = k => (k && I18N[k]) ? k : null;
+  return ok(q) || ok(stored) || ok(nav) || "en";
+}
+
+function setMeta(sel, val){ const el = document.querySelector(sel); if(el && val != null) el.setAttribute("content", val); }
+
+function applyLang(lang){
+  const t = I18N[lang]; if(!t) return;
+  document.documentElement.lang = lang;
+  document.title = t.meta_title;
+  setMeta('meta[name="description"]', t.meta_desc);
+  setMeta('meta[property="og:title"]', t.og_title);
+  setMeta('meta[property="og:description"]', t.og_desc);
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const v = t[el.dataset.i18n]; if(v != null) el.textContent = v;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const v = t[el.dataset.i18nHtml]; if(v != null) el.innerHTML = v;
+  });
+
+  const cur = document.getElementById("lang-current");
+  if(cur) cur.textContent = LANG_CODES[lang] || lang.toUpperCase();
+  document.querySelectorAll(".lang-menu li").forEach(li=>{
+    li.setAttribute("aria-selected", String(li.dataset.lang === lang));
+  });
+
+  try { localStorage.setItem(STORE_KEY, lang); } catch(e){}
+}
+
+(function initLangSwitcher(){
+  const lang = document.getElementById("lang");
+  const btn = lang.querySelector(".lang-btn");
+  const close = () => { lang.classList.remove("open"); btn.setAttribute("aria-expanded","false"); };
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    const open = lang.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+  lang.querySelectorAll(".lang-menu li").forEach(li=>{
+    li.addEventListener("click", () => { applyLang(li.dataset.lang); close(); });
+  });
+  document.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if(e.key === "Escape") close(); });
+})();
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+applyLang(pickLang());
+</script>
 </body>
 </html>
