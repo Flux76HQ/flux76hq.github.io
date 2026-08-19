@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flux76 — self-hosted software, built to last</title>
-<meta name="description" content="Flux76 is an indie studio from the Netherlands building self-hosted iOS & web apps you own and run yourself — DiscVault and the VaultStack suite.">
-<meta property="og:title" content="Flux76 — self-hosted software, built to last">
-<meta property="og:description" content="Indie studio building self-hosted iOS & web apps. Build the future — host it yourself.">
+<title>Flux76 — focused software, built to last</title>
+<meta name="description" content="Flux76 is an independent Dutch software studio building thoughtful apps for collectors, individuals and entrepreneurs.">
+<meta property="og:title" content="Flux76 — focused software, built to last">
+<meta property="og:description" content="Thoughtful apps and web tools that solve clear problems without creating more work.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flux76.com">
 <meta property="og:image" content="https://flux76.com/og-image.png">
@@ -17,105 +17,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0B0A18; --ink-2:#12112A; --surface:#171633; --line:#2A284D;
-    --text:#ECEBF6; --muted:#8C8AB0;
-    --aqua:#2FE6D6; --violet:#6C5CE7; --magenta:#FF4D9D;
+    --ink:#0B0A18;--ink-2:#12112A;--surface:#171633;--line:#2A284D;
+    --text:#ECEBF6;--body:#C7C6DD;--muted:#8C8AB0;
+    --aqua:#2FE6D6;--violet:#6C5CE7;--magenta:#FF4D9D;
     --flux:linear-gradient(90deg,#2FE6D6 0%,#6C5CE7 52%,#FF4D9D 100%);
-    --maxw:1080px;
+    --maxw:1160px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--ink);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .mono{font-family:'JetBrains Mono',monospace}
   .grad{background:var(--flux);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
 
-  /* nav */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,10,24,.72);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:-.5px;text-decoration:none}
-  .brand svg{width:30px;height:30px}
-  .nav-links{display:flex;gap:26px;align-items:center}
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,10,24,.9);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:700;font-size:21px;letter-spacing:-.5px;text-decoration:none}
+  .brand svg{width:28px;height:28px}
+  .nav-links{display:flex;gap:24px;align-items:center}
   .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
   .nav-links a:hover{color:var(--text)}
-  .nav-links .cta{color:var(--text);font-weight:500}
-  @media(max-width:640px){.nav-links a:not(.cta){display:none}.nav-links{gap:16px}}
+  .nav-links .cta{color:var(--body);font-weight:500}
 
-  /* language switcher */
   .lang{position:relative}
-  .lang-btn{display:inline-flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:border-color .2s,color .2s}
-  .lang-btn:hover{color:var(--text);border-color:var(--violet)}
+  .lang-btn{display:inline-flex;align-items:center;gap:7px;min-height:42px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:7px 11px;cursor:pointer;transition:border-color .2s,color .2s}
+  .lang-btn:hover{color:var(--text);border-color:#45416B}
   .lang-btn svg{flex:none}
   .lang-btn .chev{width:11px;height:11px;transition:transform .2s;opacity:.7}
   .flag{width:24px;height:16px;border-radius:3px;overflow:hidden;flex:none;display:block;line-height:0;box-shadow:0 0 0 1px rgba(255,255,255,.14) inset}
   .flag svg{width:100%;height:100%;display:block}
   .lang.open .lang-btn .chev{transform:rotate(180deg)}
-  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:172px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;list-style:none;box-shadow:0 14px 38px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60}
+  .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:172px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;list-style:none;box-shadow:0 14px 38px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility .16s;z-index:60}
   .lang.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0)}
-  .lang-menu li{display:flex;align-items:center;justify-content:flex-start;gap:11px;font-family:'Inter',sans-serif;font-size:14px;color:#C7C6DD;padding:9px 12px;border-radius:8px;cursor:pointer;transition:background .15s,color .15s}
+  .lang-menu li{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--body);padding:9px 12px;border-radius:8px;cursor:pointer}
   .lang-menu li:hover{background:var(--ink-2);color:var(--text)}
   .lang-menu li[aria-selected="true"]{color:var(--aqua)}
 
-  /* hero */
-  .hero{position:relative;padding:96px 0 88px;overflow:hidden;text-align:center}
-  .hero::before{content:"";position:absolute;inset:0;background:
-    radial-gradient(620px 340px at 74% 6%, rgba(255,77,157,.16), transparent 62%),
-    radial-gradient(560px 340px at 16% 20%, rgba(47,230,214,.14), transparent 62%),
-    radial-gradient(760px 460px at 50% 118%, rgba(108,92,231,.20), transparent 60%);
-    pointer-events:none}
-  .hero-in{position:relative;z-index:1}
-  .hero .bigmark{width:88px;height:88px;margin:0 auto 26px;display:block}
-  h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,9vw,88px);letter-spacing:-2.5px;line-height:.98}
-  .lede{font-family:'Space Grotesk';font-weight:500;font-size:clamp(18px,3.6vw,24px);margin:22px auto 0;max-width:34ch;color:var(--text)}
-  .sub{color:var(--muted);margin-top:12px;font-size:15px}
-  .current{position:relative;height:3px;width:min(420px,80%);margin:40px auto 0;border-radius:3px;background:var(--line);overflow:hidden}
-  .current::after{content:"";position:absolute;top:0;left:-40%;height:100%;width:40%;background:var(--flux);animation:flow 3.6s cubic-bezier(.6,0,.4,1) infinite}
-  @keyframes flow{0%{left:-45%}100%{left:105%}}
-  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:38px}
-  .btn{font-family:'Space Grotesk';font-weight:600;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:12px;transition:transform .15s,box-shadow .2s}
-  .btn-primary{color:#0B0A18;background:linear-gradient(90deg,#2FE6D6,#6C5CE7);box-shadow:0 6px 24px rgba(108,92,231,.35)}
-  .btn-primary:hover{transform:translateY(-2px)}
-  .btn-ghost{color:var(--text);border:1px solid var(--line);background:var(--ink-2)}
-  .btn-ghost:hover{border-color:var(--violet)}
+  .hero{padding:112px 0 104px}
+  .hero-in{max-width:880px;margin-left:auto;margin-right:auto}
+  .hero .bigmark{width:56px;height:56px;margin:0 0 28px;display:block}
+  h1{max-width:12ch;font-family:'Space Grotesk';font-weight:700;font-size:clamp(44px,7vw,72px);letter-spacing:-2px;line-height:1.03}
+  .lede{font-family:'Space Grotesk';font-weight:500;font-size:clamp(18px,3vw,23px);margin:24px 0 0;max-width:56ch;color:var(--body)}
+  .sub{color:var(--muted);margin-top:14px;font-size:14px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;min-height:48px;font-family:'Space Grotesk';font-weight:600;font-size:15px;text-decoration:none;padding:11px 22px;border-radius:10px;border:1px solid transparent;transition:border-color .2s,background .2s}
+  .btn-primary{color:var(--ink);background:var(--text)}
+  .btn-primary:hover{background:var(--body)}
+  .btn-ghost{color:var(--body);border-color:var(--line);background:transparent}
+  .btn-ghost:hover{border-color:#45416B;color:var(--text)}
 
-  section{padding:72px 0;border-top:1px solid var(--line)}
-  h2{font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,5vw,34px);letter-spacing:-.8px;margin:14px 0 20px}
-  p.lead{font-size:18px;color:#C7C6DD;max-width:62ch}
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  h2{max-width:20ch;font-family:'Space Grotesk';font-weight:600;font-size:clamp(28px,4.5vw,42px);letter-spacing:-1px;line-height:1.15;margin:14px 0 22px}
+  p.lead{font-size:18px;color:var(--body);max-width:72ch}
 
-  /* projects */
-  .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
-  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-  .proj{background:linear-gradient(180deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:18px;padding:26px;transition:border-color .2s,transform .2s}
-  .proj:hover{border-color:var(--violet);transform:translateY(-3px)}
-  .proj .tag{font-family:'JetBrains Mono';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua)}
-  .proj h3{font-family:'Space Grotesk';font-weight:600;font-size:22px;margin:10px 0 8px}
-  .proj p{color:var(--muted);font-size:15px}
-  .stack{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
-  .pill{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
-  .vaultnote{margin-top:22px;font-size:15px;color:#C7C6DD;border-left:2px solid transparent;border-image:var(--flux) 1;padding-left:16px}
+  .project-intro{margin-bottom:34px}
+  .disc-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px}
+  .edition-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;background:var(--ink-2);border:1px solid var(--line);border-radius:18px;text-decoration:none;transition:border-color .2s}
+  .edition-card:hover{border-color:#45416B}
+  .edition-visual{height:390px;display:flex;align-items:center;justify-content:center;background:#0C0B22;padding:26px;border-bottom:1px solid var(--line)}
+  .edition-visual-mobile img{height:100%;width:auto;filter:drop-shadow(0 18px 28px rgba(0,0,0,.32))}
+  .edition-visual-desktop img{width:100%;max-height:100%;object-fit:contain;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 34px rgba(0,0,0,.24)}
+  .edition-copy{display:flex;flex:1;flex-direction:column;padding:26px}
+  .tag{font-family:'JetBrains Mono';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua)}
+  .edition-copy h3{font-family:'Space Grotesk';font-weight:600;font-size:23px;line-height:1.2;margin:10px 0 9px}
+  .edition-copy p{color:var(--muted);font-size:15px}
+  .edition-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;color:var(--body);font-family:'Space Grotesk';font-size:14px;font-weight:600}
+  .edition-link::after{content:"\2192";color:var(--aqua)}
+  .more-note{margin-top:26px;color:var(--muted);font-size:15px}
 
-  /* principles */
-  .princ{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
-  @media(min-width:720px){.princ{grid-template-columns:1fr 1fr}}
-  .p{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--ink-2)}
-  .p .k{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:6px}
+  .princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+  .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--ink-2)}
+  .p .k{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px}
   .p .k span{color:var(--aqua)}
   .p p{color:var(--muted);font-size:14px}
 
-  /* footer */
   footer{border-top:1px solid var(--line);padding:56px 0 60px}
   .foot{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
   .foot .brand{margin-bottom:10px}
   .foot-links{display:flex;gap:44px;flex-wrap:wrap}
   .col h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-  .col a{display:block;font-size:14px;color:#C7C6DD;text-decoration:none;padding:4px 0;transition:color .2s}
+  .col a{display:block;font-size:14px;color:var(--body);text-decoration:none;padding:4px 0;transition:color .2s}
   .col a:hover{color:var(--aqua)}
   .copyright{margin-top:40px;font-family:'JetBrains Mono';font-size:12px;color:var(--muted)}
 
   :focus-visible{outline:2px solid var(--aqua);outline-offset:3px;border-radius:4px}
-  @media(prefers-reduced-motion:reduce){.current::after{animation:none;left:0;width:100%}.btn:hover,.proj:hover{transform:none}}
+  @media(max-width:760px){
+    .wrap{padding:0 20px}
+    .hero{padding:80px 0 76px}
+    .hero-in{max-width:none}
+    section{padding:70px 0}
+    .disc-grid,.princ{grid-template-columns:1fr}
+    .edition-visual{height:340px}
+  }
+  @media(max-width:640px){
+    .nav-links a:not(.cta){display:none}
+    .nav-links{gap:12px}
+    .hero .bigmark{width:48px;height:48px}
+    .edition-visual{height:320px;padding:20px}
+    .foot-links{gap:30px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -130,7 +134,7 @@
     Flux<span class="grad">76</span>
   </a>
   <div class="nav-links">
-    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="#projects" data-i18n="nav_projects">DiscVault</a>
     <a href="#philosophy" data-i18n="nav_philosophy">Philosophy</a>
     <a class="cta" href="https://github.com/Flux76HQ">GitHub ↗</a>
     <div class="lang" id="lang">
@@ -154,56 +158,60 @@
     <path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="5.4" stroke-linecap="round"/>
     <circle cx="40" cy="44" r="6" fill="url(#fg)"/><circle cx="40" cy="16" r="4.6" fill="#2FE6D6"/><circle cx="20" cy="68" r="4.6" fill="#6C5CE7"/><circle cx="60" cy="68" r="4.6" fill="#FF4D9D"/>
   </svg>
-  <h1 data-i18n-html="hero_h1">Self-hosted software,<br>built to <span class="grad">last</span>.</h1>
-  <p class="lede" data-i18n="hero_lede">Indie studio from the Netherlands, building iOS &amp; web apps you own and run yourself.</p>
-  <p class="sub mono" data-i18n="hero_sub">no cloud lock-in · your data · your hardware</p>
-  <div class="current" role="presentation"></div>
+  <h1 data-i18n-html="hero_h1">Focused software,<br>built to <span class="grad">last</span>.</h1>
+  <p class="lede" data-i18n="hero_lede">Independent studio building thoughtful apps for collectors, individuals and entrepreneurs.</p>
+  <p class="sub mono" data-i18n="hero_sub">clear tools · less busywork · more control</p>
   <div class="btns">
-    <a class="btn btn-primary" href="#projects" data-i18n="hero_btn1">Explore the apps</a>
+    <a class="btn btn-primary" href="#projects" data-i18n="hero_btn1">Explore DiscVault</a>
     <a class="btn btn-ghost" href="https://github.com/Flux76HQ" data-i18n="hero_btn2">View on GitHub</a>
   </div>
 </div></header>
 
 <main>
   <section id="what"><div class="wrap">
-    <div class="eyebrow" data-i18n="what_eyebrow">The idea</div>
-    <h2 data-i18n="what_h2">You run it. You own it.</h2>
-    <p class="lead" data-i18n="what_lead">Flux76 builds self-hosted media &amp; utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.</p>
+    <div class="eyebrow" data-i18n="what_eyebrow">What we build</div>
+    <h2 data-i18n="what_h2">Software that stays out of your way.</h2>
+    <p class="lead" data-i18n="what_lead">Flux76 builds focused apps and web tools for people who want clarity, control and less digital friction. That includes privacy-minded software for personal collections and practical tools for entrepreneurs — designed to support the work without becoming more work. We choose native, web or self-hosted technology based on what fits the problem, keep data and ownership transparent, and avoid unnecessary complexity.</p>
   </div></section>
 
   <section id="projects"><div class="wrap">
-    <div class="eyebrow" data-i18n="proj_eyebrow">Projects</div>
-    <h2 data-i18n="proj_h2">The VaultStack suite</h2>
-    <div class="grid">
-      <div class="proj">
-        <div class="tag" data-i18n="proj_disc_tag">Physical media</div>
-        <h3>DiscVault</h3>
-        <p data-i18n="proj_disc_p">Manage your physical disc collection — 4K UHD, Blu-ray &amp; DVD — with a native iOS app, a PWA and a self-hosted Docker backend.</p>
-        <div class="stack"><span class="pill">SwiftUI</span><span class="pill">PWA</span><span class="pill">Docker</span></div>
-      </div>
-      <div class="proj">
-        <div class="tag" data-i18n="proj_movie_tag">Metadata</div>
-        <h3>MovieVault</h3>
-        <p data-i18n="proj_movie_p">Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.</p>
-        <div class="stack"><span class="pill">API</span><span class="pill">Docker</span></div>
-      </div>
-      <div class="proj">
-        <div class="tag" data-i18n="proj_watch_tag">Insights</div>
-        <h3>WatchVault</h3>
-        <p data-i18n="proj_watch_p">Multi-user streaming &amp; watch statistics — see what your household actually watches, without handing the data to anyone.</p>
-        <div class="stack"><span class="pill">Web</span><span class="pill">Docker</span></div>
-      </div>
+    <div class="eyebrow" data-i18n="proj_eyebrow">DiscVault</div>
+    <h2 data-i18n="proj_h2">One collection. Two ways to use it.</h2>
+    <p class="lead project-intro" data-i18n="proj_lead">Use DiscVault as a standalone app on iPhone and iPad, or run the full self-hosted platform on your own infrastructure.</p>
+    <div class="disc-grid">
+      <a class="edition-card" href="https://flux76.app/discvault/">
+        <div class="edition-visual edition-visual-mobile">
+          <img src="assets/img/discvault-ios.png" alt="DiscVault library on iPhone" width="768" height="1567" loading="lazy">
+        </div>
+        <div class="edition-copy">
+          <div class="tag" data-i18n="proj_ios_tag">iPhone &amp; iPad</div>
+          <h3 data-i18n="proj_ios_h3">DiscVault for iOS</h3>
+          <p data-i18n="proj_ios_p">Scan and organise your 4K UHD, Blu-ray and DVD collection. No server required.</p>
+          <span class="edition-link" data-i18n="proj_ios_link">Explore the iOS app</span>
+        </div>
+      </a>
+      <a class="edition-card" href="https://discvault.eu">
+        <div class="edition-visual edition-visual-desktop">
+          <img src="assets/img/discvault-self-hosted.png" alt="DiscVault self-hosted desktop library" width="1304" height="768" loading="lazy">
+        </div>
+        <div class="edition-copy">
+          <div class="tag" data-i18n="proj_self_tag">Self-hosted</div>
+          <h3 data-i18n="proj_self_h3">DiscVault</h3>
+          <p data-i18n="proj_self_p">Run the complete collection platform yourself, with a desktop-first library, richer controls and room to grow.</p>
+          <span class="edition-link" data-i18n="proj_self_link">Explore the self-hosted version</span>
+        </div>
+      </a>
     </div>
-    <p class="vaultnote" data-i18n="proj_note">Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.</p>
+    <p class="more-note" data-i18n="proj_note">More focused apps and tools are on the way.</p>
   </div></section>
 
   <section id="philosophy"><div class="wrap">
-    <div class="eyebrow" data-i18n="phil_eyebrow">Philosophy</div>
-    <h2 data-i18n="phil_h2">Built to last, not to rent.</h2>
+    <div class="eyebrow" data-i18n="phil_eyebrow">How we work</div>
+    <h2 data-i18n="phil_h2">Software should make room for the work.</h2>
     <div class="princ">
-      <div class="p"><div class="k"><span>01</span> · <span data-i18n="phil_1_k">Self-hosted first</span></div><p data-i18n="phil_1_p">Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.</p></div>
-      <div class="p"><div class="k"><span>02</span> · <span data-i18n="phil_2_k">Privacy by default</span></div><p data-i18n="phil_2_p">No tracking, no data selling, no surprise cloud sync. Ever.</p></div>
-      <div class="p"><div class="k"><span>03</span> · <span data-i18n="phil_3_k">Native + web</span></div><p data-i18n="phil_3_p">SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.</p></div>
+      <div class="p"><div class="k"><span>01</span> · <span data-i18n="phil_1_k">Purpose-built</span></div><p data-i18n="phil_1_p">Each app solves a clear problem without piling on distractions.</p></div>
+      <div class="p"><div class="k"><span>02</span> · <span data-i18n="phil_2_k">Transparent about data</span></div><p data-i18n="phil_2_p">We use only the data a product needs and make clear what happens to it and who controls it.</p></div>
+      <div class="p"><div class="k"><span>03</span> · <span data-i18n="phil_3_k">The right platform</span></div><p data-i18n="phil_3_p">Native, web or self-hosted — chosen for the job, not for the trend.</p></div>
       <div class="p"><div class="k"><span>04</span> · <span data-i18n="phil_4_k">Long-term thinking</span></div><p data-i18n="phil_4_p">Year-versioned releases and clear upgrade paths — software you can keep.</p></div>
     </div>
   </div></section>
@@ -216,14 +224,14 @@
         <svg viewBox="0 0 80 80" fill="none" width="30" height="30"><path d="M40 44 L40 18 M40 44 L20 66 M40 44 L60 66" stroke="url(#fg)" stroke-width="6" stroke-linecap="round"/><circle cx="40" cy="44" r="6" fill="#ECEBF6"/></svg>
         Flux<span class="grad">76</span>
       </a>
-      <p class="mono" style="color:var(--muted);font-size:13px;max-width:32ch" data-i18n="foot_tagline">Build the future — host it yourself.</p>
+      <p class="mono" style="color:var(--muted);font-size:13px;max-width:32ch" data-i18n="foot_tagline">Focused software, built to last.</p>
     </div>
     <div class="foot-links">
       <div class="col">
         <h4 data-i18n="foot_apps">Apps</h4>
         <a href="https://flux76.app">flux76.app</a>
-        <a href="#projects">DiscVault</a>
-        <a href="#projects">VaultStack suite</a>
+        <a href="https://flux76.app/discvault/">DiscVault for iOS</a>
+        <a href="https://discvault.eu">DiscVault self-hosted</a>
       </div>
       <div class="col">
         <h4 data-i18n="foot_code">Code</h4>
@@ -232,8 +240,9 @@
       <div class="col">
         <h4 data-i18n="foot_social">Social</h4>
         <a href="https://bsky.app/profile/flux76hq.bsky.social">Bluesky</a>
+        <a href="https://x.com/Flux76HQ">X</a>
         <a href="https://instagram.com/flux76hq">Instagram</a>
-        <a href="https://www.threads.net/@flux76hq">Threads</a>
+        <a href="https://www.tiktok.com/@flux76hq">TikTok</a>
       </div>
       <div class="col">
         <h4 data-i18n="foot_contact">Contact</h4>
@@ -241,7 +250,7 @@
       </div>
     </div>
   </div>
-  <div class="copyright">© <span id="yr"></span> Flux76 · <span data-i18n="foot_copyright">self-hosted software · Netherlands</span></div>
+  <div class="copyright">© <span id="yr"></span> Flux76 · <span data-i18n="foot_copyright">independent software studio · Netherlands</span></div>
 </div></footer>
 
 <script>
@@ -253,120 +262,124 @@
 ──────────────────────────────────────────────────────────────────────── */
 const I18N = {
   en: {
-    meta_title:"Flux76 — self-hosted software, built to last",
-    meta_desc:"Flux76 is an indie studio from the Netherlands building self-hosted iOS & web apps you own and run yourself — DiscVault and the VaultStack suite.",
-    og_title:"Flux76 — self-hosted software, built to last",
-    og_desc:"Indie studio building self-hosted iOS & web apps. Build the future — host it yourself.",
-    nav_projects:"Projects", nav_philosophy:"Philosophy",
-    hero_h1:'Self-hosted software,<br>built to <span class="grad">last</span>.',
-    hero_lede:"Indie studio from the Netherlands, building iOS & web apps you own and run yourself.",
-    hero_sub:"no cloud lock-in · your data · your hardware",
-    hero_btn1:"Explore the apps", hero_btn2:"View on GitHub",
-    what_eyebrow:"The idea", what_h2:"You run it. You own it.",
-    what_lead:"Flux76 builds self-hosted media & utility apps for people who like to keep their data close. No accounts you don't control, no surprise cloud sync — you run the backend, the apps talk to it, and everything stays on your infrastructure. Native where it counts, a PWA where you want reach, and a clean Docker backend underneath.",
-    proj_eyebrow:"Projects", proj_h2:"The VaultStack suite",
-    proj_disc_tag:"Physical media",
-    proj_disc_p:"Manage your physical disc collection — 4K UHD, Blu-ray & DVD — with a native iOS app, a PWA and a self-hosted Docker backend.",
-    proj_movie_tag:"Metadata",
-    proj_movie_p:"Rich movie metadata and release resolution — barcode/EAN matching and edition linking — that feeds the rest of the suite.",
-    proj_watch_tag:"Insights",
-    proj_watch_p:"Multi-user streaming & watch statistics — see what your household actually watches, without handing the data to anyone.",
-    proj_note:"Together they form a small ecosystem of self-hosted apps that share data and stay out of the cloud.",
-    phil_eyebrow:"Philosophy", phil_h2:"Built to last, not to rent.",
-    phil_1_k:"Self-hosted first", phil_1_p:"Your data lives on your hardware — Unraid, Docker, a Raspberry Pi, whatever you like.",
-    phil_2_k:"Privacy by default", phil_2_p:"No tracking, no data selling, no surprise cloud sync. Ever.",
-    phil_3_k:"Native + web", phil_3_p:"SwiftUI apps for iOS, PWAs for everywhere else, one backend behind them.",
+    meta_title:"Flux76 — focused software, built to last",
+    meta_desc:"Flux76 is an independent Dutch software studio building thoughtful apps for collectors, individuals and entrepreneurs.",
+    og_title:"Flux76 — focused software, built to last",
+    og_desc:"Thoughtful apps and web tools that solve clear problems without creating more work.",
+    nav_projects:"DiscVault", nav_philosophy:"How we work",
+    hero_h1:'Focused software,<br>built to <span class="grad">last</span>.',
+    hero_lede:"Independent studio building thoughtful apps for collectors, individuals and entrepreneurs.",
+    hero_sub:"clear tools · less busywork · more control",
+    hero_btn1:"Explore DiscVault", hero_btn2:"View on GitHub",
+    what_eyebrow:"What we build", what_h2:"Software that stays out of your way.",
+    what_lead:"Flux76 builds focused apps and web tools for people who want clarity, control and less digital friction. That includes privacy-minded software for personal collections and practical tools for entrepreneurs — designed to support the work without becoming more work. We choose native, web or self-hosted technology based on what fits the problem, keep data and ownership transparent, and avoid unnecessary complexity.",
+    proj_eyebrow:"DiscVault", proj_h2:"One collection. Two ways to use it.",
+    proj_lead:"Use DiscVault as a standalone app on iPhone and iPad, or run the full self-hosted platform on your own infrastructure.",
+    proj_ios_tag:"iPhone & iPad", proj_ios_h3:"DiscVault for iOS",
+    proj_ios_p:"Scan and organise your 4K UHD, Blu-ray and DVD collection. No server required.",
+    proj_ios_link:"Explore the iOS app",
+    proj_self_tag:"Self-hosted", proj_self_h3:"DiscVault",
+    proj_self_p:"Run the complete collection platform yourself, with a desktop-first library, richer controls and room to grow.",
+    proj_self_link:"Explore the self-hosted version",
+    proj_note:"More focused apps and tools are on the way.",
+    phil_eyebrow:"How we work", phil_h2:"Software should make room for the work.",
+    phil_1_k:"Purpose-built", phil_1_p:"Each app solves a clear problem without piling on distractions.",
+    phil_2_k:"Transparent about data", phil_2_p:"We use only the data a product needs and make clear what happens to it and who controls it.",
+    phil_3_k:"The right platform", phil_3_p:"Native, web or self-hosted — chosen for the job, not for the trend.",
     phil_4_k:"Long-term thinking", phil_4_p:"Year-versioned releases and clear upgrade paths — software you can keep.",
-    foot_tagline:"Build the future — host it yourself.",
+    foot_tagline:"Focused software, built to last.",
     foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
-    foot_copyright:"self-hosted software · Netherlands"
+    foot_copyright:"independent software studio · Netherlands"
   },
   nl: {
-    meta_title:"Flux76 — zelf-gehoste software, gebouwd om te blijven",
-    meta_desc:"Flux76 is een indie-studio uit Nederland die zelf-gehoste iOS- & webapps bouwt die je zelf bezit en draait — DiscVault en de VaultStack-suite.",
-    og_title:"Flux76 — zelf-gehoste software, gebouwd om te blijven",
-    og_desc:"Indie-studio die zelf-gehoste iOS- & webapps bouwt. Bouw de toekomst — host het zelf.",
-    nav_projects:"Projecten", nav_philosophy:"Filosofie",
-    hero_h1:'Zelf-gehoste software,<br>gebouwd om te <span class="grad">blijven</span>.',
-    hero_lede:"Indie-studio uit Nederland die iOS- & webapps bouwt die je zelf bezit en draait.",
-    hero_sub:"geen cloud-lock-in · jouw data · jouw hardware",
-    hero_btn1:"Bekijk de apps", hero_btn2:"Bekijk op GitHub",
-    what_eyebrow:"Het idee", what_h2:"Jij draait het. Jij bezit het.",
-    what_lead:"Flux76 bouwt zelf-gehoste media- & hulpprogramma's voor mensen die hun data graag dichtbij houden. Geen accounts waar jij geen controle over hebt, geen onverwachte cloud-sync — jij draait de backend, de apps praten ermee, en alles blijft op jouw infrastructuur. Native waar het telt, een PWA waar je bereik wilt, en een strakke Docker-backend eronder.",
-    proj_eyebrow:"Projecten", proj_h2:"De VaultStack-suite",
-    proj_disc_tag:"Fysieke media",
-    proj_disc_p:"Beheer je fysieke schijvencollectie — 4K UHD, Blu-ray & DVD — met een native iOS-app, een PWA en een zelf-gehoste Docker-backend.",
-    proj_movie_tag:"Metadata",
-    proj_movie_p:"Rijke filmmetadata en release-herkenning — barcode/EAN-matching en editie-koppeling — die de rest van de suite voedt.",
-    proj_watch_tag:"Inzichten",
-    proj_watch_p:"Streaming- & kijkstatistieken voor meerdere gebruikers — zie wat je huishouden écht kijkt, zonder de data aan iemand af te staan.",
-    proj_note:"Samen vormen ze een klein ecosysteem van zelf-gehoste apps die data delen en buiten de cloud blijven.",
-    phil_eyebrow:"Filosofie", phil_h2:"Gebouwd om te blijven, niet om te huren.",
-    phil_1_k:"Self-hosted eerst", phil_1_p:"Je data staat op jouw hardware — Unraid, Docker, een Raspberry Pi, wat je maar wilt.",
-    phil_2_k:"Privacy standaard", phil_2_p:"Geen tracking, geen dataverkoop, geen onverwachte cloud-sync. Nooit.",
-    phil_3_k:"Native + web", phil_3_p:"SwiftUI-apps voor iOS, PWA's voor de rest, één backend erachter.",
+    meta_title:"Flux76 — gerichte software, gebouwd om te blijven",
+    meta_desc:"Flux76 is een onafhankelijke Nederlandse softwarestudio die doordachte apps bouwt voor verzamelaars, particulieren en ondernemers.",
+    og_title:"Flux76 — gerichte software, gebouwd om te blijven",
+    og_desc:"Doordachte apps en webtools die duidelijke problemen oplossen zonder extra werk te veroorzaken.",
+    nav_projects:"DiscVault", nav_philosophy:"Werkwijze",
+    hero_h1:'Gerichte software,<br>gebouwd om te <span class="grad">blijven</span>.',
+    hero_lede:"Onafhankelijke studio die doordachte apps bouwt voor verzamelaars, particulieren en ondernemers.",
+    hero_sub:"duidelijke tools · minder rompslomp · meer controle",
+    hero_btn1:"Bekijk DiscVault", hero_btn2:"Bekijk op GitHub",
+    what_eyebrow:"Wat we bouwen", what_h2:"Software die niet in de weg zit.",
+    what_lead:"Flux76 bouwt gerichte apps en webtools voor mensen die overzicht, controle en minder digitale rompslomp willen. Dat zijn privacybewuste oplossingen voor persoonlijk gebruik én praktische hulpmiddelen voor ondernemers — ontworpen om het werk te ondersteunen zonder zelf extra werk te worden. We kiezen native, web of self-hosted technologie op basis van wat bij het probleem past, maken eigenaarschap en datagebruik duidelijk en vermijden onnodige complexiteit.",
+    proj_eyebrow:"DiscVault", proj_h2:"Eén collectie. Twee manieren om ermee te werken.",
+    proj_lead:"Gebruik DiscVault als zelfstandige app op iPhone en iPad, of draai het volledige self-hosted platform op je eigen infrastructuur.",
+    proj_ios_tag:"iPhone & iPad", proj_ios_h3:"DiscVault voor iOS",
+    proj_ios_p:"Scan en organiseer je 4K UHD-, Blu-ray- en dvd-collectie. Geen server nodig.",
+    proj_ios_link:"Bekijk de iOS-app",
+    proj_self_tag:"Self-hosted", proj_self_h3:"DiscVault",
+    proj_self_p:"Draai het complete collectieplatform zelf, met een desktopgerichte bibliotheek, uitgebreidere bediening en ruimte om te groeien.",
+    proj_self_link:"Bekijk de self-hosted versie",
+    proj_note:"Er komen meer gerichte apps en tools aan.",
+    phil_eyebrow:"Werkwijze", phil_h2:"Software moet ruimte maken voor het werk.",
+    phil_1_k:"Doelgericht gebouwd", phil_1_p:"Elke app lost een duidelijk probleem op zonder afleiding toe te voegen.",
+    phil_2_k:"Transparant over data", phil_2_p:"We gebruiken alleen de data die een product nodig heeft en maken duidelijk wat ermee gebeurt en wie er controle over heeft.",
+    phil_3_k:"Het juiste platform", phil_3_p:"Native, web of self-hosted — gekozen voor het werk, niet voor de trend.",
     phil_4_k:"Langetermijndenken", phil_4_p:"Releases per jaartal en duidelijke upgradepaden — software die je kunt houden.",
-    foot_tagline:"Bouw de toekomst — host het zelf.",
+    foot_tagline:"Gerichte software, gebouwd om te blijven.",
     foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
-    foot_copyright:"zelf-gehoste software · Nederland"
+    foot_copyright:"onafhankelijke softwarestudio · Nederland"
   },
   de: {
-    meta_title:"Flux76 — selbstgehostete Software, gebaut, um zu bleiben",
-    meta_desc:"Flux76 ist ein Indie-Studio aus den Niederlanden, das selbstgehostete iOS- & Web-Apps baut, die dir gehören und die du selbst betreibst — DiscVault und die VaultStack-Suite.",
-    og_title:"Flux76 — selbstgehostete Software, gebaut, um zu bleiben",
-    og_desc:"Indie-Studio, das selbstgehostete iOS- & Web-Apps baut. Bau die Zukunft — hoste sie selbst.",
-    nav_projects:"Projekte", nav_philosophy:"Philosophie",
-    hero_h1:'Selbstgehostete Software,<br>gebaut, um zu <span class="grad">bleiben</span>.',
-    hero_lede:"Indie-Studio aus den Niederlanden, das iOS- & Web-Apps baut, die dir gehören und die du selbst betreibst.",
-    hero_sub:"kein Cloud-Lock-in · deine Daten · deine Hardware",
-    hero_btn1:"Apps entdecken", hero_btn2:"Auf GitHub ansehen",
-    what_eyebrow:"Die Idee", what_h2:"Du betreibst es. Du besitzt es.",
-    what_lead:"Flux76 baut selbstgehostete Medien- & Werkzeug-Apps für Menschen, die ihre Daten gern nah bei sich behalten. Keine Konten, die du nicht kontrollierst, keine überraschende Cloud-Synchronisierung — du betreibst das Backend, die Apps sprechen damit, und alles bleibt auf deiner Infrastruktur. Nativ, wo es zählt, eine PWA, wo du Reichweite willst, und ein sauberes Docker-Backend darunter.",
-    proj_eyebrow:"Projekte", proj_h2:"Die VaultStack-Suite",
-    proj_disc_tag:"Physische Medien",
-    proj_disc_p:"Verwalte deine physische Disc-Sammlung — 4K UHD, Blu-ray & DVD — mit einer nativen iOS-App, einer PWA und einem selbstgehosteten Docker-Backend.",
-    proj_movie_tag:"Metadaten",
-    proj_movie_p:"Umfangreiche Film-Metadaten und Release-Erkennung — Barcode/EAN-Abgleich und Editions-Verknüpfung — die den Rest der Suite speisen.",
-    proj_watch_tag:"Einblicke",
-    proj_watch_p:"Streaming- & Sehstatistiken für mehrere Nutzer — sieh, was dein Haushalt wirklich schaut, ohne die Daten irgendjemandem zu überlassen.",
-    proj_note:"Zusammen bilden sie ein kleines Ökosystem selbstgehosteter Apps, die Daten teilen und außerhalb der Cloud bleiben.",
-    phil_eyebrow:"Philosophie", phil_h2:"Gebaut, um zu bleiben — nicht zum Mieten.",
-    phil_1_k:"Selbstgehostet zuerst", phil_1_p:"Deine Daten liegen auf deiner Hardware — Unraid, Docker, ein Raspberry Pi, was immer du magst.",
-    phil_2_k:"Privatsphäre von Haus aus", phil_2_p:"Kein Tracking, kein Datenverkauf, keine überraschende Cloud-Sync. Niemals.",
-    phil_3_k:"Nativ + Web", phil_3_p:"SwiftUI-Apps für iOS, PWAs für überall sonst, ein Backend dahinter.",
+    meta_title:"Flux76 — fokussierte Software, für die Zukunft gebaut",
+    meta_desc:"Flux76 ist ein unabhängiges niederländisches Softwarestudio, das durchdachte Apps für Sammler, Privatpersonen und Unternehmer entwickelt.",
+    og_title:"Flux76 — fokussierte Software, für die Zukunft gebaut",
+    og_desc:"Durchdachte Apps und Web-Tools, die klare Probleme lösen, ohne neue Arbeit zu schaffen.",
+    nav_projects:"DiscVault", nav_philosophy:"Arbeitsweise",
+    hero_h1:'Fokussierte Software,<br>für die Zukunft <span class="grad">gebaut</span>.',
+    hero_lede:"Unabhängiges Studio für durchdachte Apps für Sammler, Privatpersonen und Unternehmer.",
+    hero_sub:"klare Werkzeuge · weniger Aufwand · mehr Kontrolle",
+    hero_btn1:"DiscVault entdecken", hero_btn2:"Auf GitHub ansehen",
+    what_eyebrow:"Was wir entwickeln", what_h2:"Software, die nicht im Weg steht.",
+    what_lead:"Flux76 entwickelt fokussierte Apps und Web-Tools für Menschen, die Klarheit, Kontrolle und weniger digitalen Aufwand wollen. Dazu gehören datenschutzbewusste Lösungen für den persönlichen Gebrauch ebenso wie praktische Werkzeuge für Unternehmer — entwickelt, um die Arbeit zu unterstützen, ohne selbst mehr Arbeit zu verursachen. Wir wählen native, webbasierte oder selbstgehostete Technologie passend zum Problem, machen Datennutzung und Eigentum transparent und vermeiden unnötige Komplexität.",
+    proj_eyebrow:"DiscVault", proj_h2:"Eine Sammlung. Zwei Wege, sie zu nutzen.",
+    proj_lead:"Nutze DiscVault als eigenständige App auf iPhone und iPad oder betreibe die vollständige selbstgehostete Plattform auf deiner eigenen Infrastruktur.",
+    proj_ios_tag:"iPhone & iPad", proj_ios_h3:"DiscVault für iOS",
+    proj_ios_p:"Scanne und organisiere deine 4K-UHD-, Blu-ray- und DVD-Sammlung. Kein Server erforderlich.",
+    proj_ios_link:"iOS-App entdecken",
+    proj_self_tag:"Selbstgehostet", proj_self_h3:"DiscVault",
+    proj_self_p:"Betreibe die vollständige Sammlungsplattform selbst — mit einer desktoporientierten Bibliothek, umfangreicheren Funktionen und Platz zum Wachsen.",
+    proj_self_link:"Selbstgehostete Version entdecken",
+    proj_note:"Weitere fokussierte Apps und Werkzeuge sind in Arbeit.",
+    phil_eyebrow:"Arbeitsweise", phil_h2:"Software sollte Raum für die Arbeit schaffen.",
+    phil_1_k:"Gezielt entwickelt", phil_1_p:"Jede App löst ein klares Problem, ohne neue Ablenkungen zu schaffen.",
+    phil_2_k:"Transparenter Umgang mit Daten", phil_2_p:"Wir verwenden nur die Daten, die ein Produkt benötigt, und machen transparent, was mit ihnen geschieht und wer die Kontrolle darüber hat.",
+    phil_3_k:"Die passende Plattform", phil_3_p:"Nativ, webbasiert oder selbstgehostet — gewählt für die Aufgabe, nicht für den Trend.",
     phil_4_k:"Langfristig gedacht", phil_4_p:"Nach Jahr versionierte Releases und klare Upgrade-Pfade — Software, die du behalten kannst.",
-    foot_tagline:"Bau die Zukunft — hoste sie selbst.",
+    foot_tagline:"Fokussierte Software, für die Zukunft gebaut.",
     foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Kontakt",
-    foot_copyright:"selbstgehostete Software · Niederlande"
+    foot_copyright:"unabhängiges Softwarestudio · Niederlande"
   },
   fr: {
-    meta_title:"Flux76 — logiciels auto-hébergés, conçus pour durer",
-    meta_desc:"Flux76 est un studio indépendant des Pays-Bas qui conçoit des applis iOS & web auto-hébergées que vous possédez et hébergez vous-même — DiscVault et la suite VaultStack.",
-    og_title:"Flux76 — logiciels auto-hébergés, conçus pour durer",
-    og_desc:"Studio indépendant qui conçoit des applis iOS & web auto-hébergées. Construisez l'avenir — hébergez-le vous-même.",
-    nav_projects:"Projets", nav_philosophy:"Philosophie",
-    hero_h1:'Des logiciels auto-hébergés,<br>conçus pour <span class="grad">durer</span>.',
-    hero_lede:"Studio indépendant des Pays-Bas qui conçoit des applis iOS & web que vous possédez et hébergez vous-même.",
-    hero_sub:"pas de dépendance au cloud · vos données · votre matériel",
-    hero_btn1:"Découvrir les applis", hero_btn2:"Voir sur GitHub",
-    what_eyebrow:"L'idée", what_h2:"Vous l'hébergez. Vous le possédez.",
-    what_lead:"Flux76 conçoit des applis multimédias & utilitaires auto-hébergées pour ceux qui aiment garder leurs données près d'eux. Pas de comptes que vous ne contrôlez pas, pas de synchronisation cloud surprise — vous hébergez le backend, les applis communiquent avec lui, et tout reste sur votre infrastructure. Natif là où ça compte, une PWA là où vous voulez de la portée, et un backend Docker soigné en dessous.",
-    proj_eyebrow:"Projets", proj_h2:"La suite VaultStack",
-    proj_disc_tag:"Médias physiques",
-    proj_disc_p:"Gérez votre collection de disques physiques — 4K UHD, Blu-ray & DVD — avec une appli iOS native, une PWA et un backend Docker auto-hébergé.",
-    proj_movie_tag:"Métadonnées",
-    proj_movie_p:"Métadonnées de films riches et résolution des éditions — correspondance code-barres/EAN et liaison des éditions — qui alimentent le reste de la suite.",
-    proj_watch_tag:"Analyses",
-    proj_watch_p:"Statistiques de streaming & de visionnage multi-utilisateurs — voyez ce que votre foyer regarde vraiment, sans confier les données à personne.",
-    proj_note:"Ensemble, elles forment un petit écosystème d'applis auto-hébergées qui partagent leurs données et restent hors du cloud.",
-    phil_eyebrow:"Philosophie", phil_h2:"Conçu pour durer, pas pour être loué.",
-    phil_1_k:"L'auto-hébergement d'abord", phil_1_p:"Vos données vivent sur votre matériel — Unraid, Docker, un Raspberry Pi, comme vous voulez.",
-    phil_2_k:"Confidentialité par défaut", phil_2_p:"Pas de pistage, pas de revente de données, pas de synchro cloud surprise. Jamais.",
-    phil_3_k:"Natif + web", phil_3_p:"Des applis SwiftUI pour iOS, des PWA pour tout le reste, un seul backend derrière.",
+    meta_title:"Flux76 — des logiciels ciblés, conçus pour durer",
+    meta_desc:"Flux76 est un studio logiciel néerlandais indépendant qui conçoit des applications réfléchies pour les collectionneurs, les particuliers et les entrepreneurs.",
+    og_title:"Flux76 — des logiciels ciblés, conçus pour durer",
+    og_desc:"Des applications et outils web réfléchis qui résolvent des problèmes clairs sans créer davantage de travail.",
+    nav_projects:"DiscVault", nav_philosophy:"Notre approche",
+    hero_h1:'Des logiciels ciblés,<br>conçus pour <span class="grad">durer</span>.',
+    hero_lede:"Studio indépendant qui conçoit des applications réfléchies pour les collectionneurs, les particuliers et les entrepreneurs.",
+    hero_sub:"des outils clairs · moins de contraintes · plus de contrôle",
+    hero_btn1:"Découvrir DiscVault", hero_btn2:"Voir sur GitHub",
+    what_eyebrow:"Ce que nous créons", what_h2:"Des logiciels qui savent se faire oublier.",
+    what_lead:"Flux76 conçoit des applications et des outils web ciblés pour celles et ceux qui recherchent plus de clarté, de contrôle et moins de friction numérique. Cela comprend des logiciels respectueux de la vie privée pour un usage personnel, ainsi que des outils pratiques pour les entrepreneurs — pensés pour soutenir le travail sans en créer davantage. Nous choisissons une technologie native, web ou auto-hébergée selon le besoin, rendons l'utilisation des données et la propriété transparentes et évitons la complexité inutile.",
+    proj_eyebrow:"DiscVault", proj_h2:"Une collection. Deux façons de l'utiliser.",
+    proj_lead:"Utilisez DiscVault comme application autonome sur iPhone et iPad, ou hébergez la plateforme complète sur votre propre infrastructure.",
+    proj_ios_tag:"iPhone & iPad", proj_ios_h3:"DiscVault pour iOS",
+    proj_ios_p:"Scannez et organisez votre collection 4K UHD, Blu-ray et DVD. Aucun serveur requis.",
+    proj_ios_link:"Découvrir l'application iOS",
+    proj_self_tag:"Auto-hébergé", proj_self_h3:"DiscVault",
+    proj_self_p:"Hébergez vous-même la plateforme de collection complète, avec une bibliothèque pensée pour le bureau, des contrôles avancés et de la place pour évoluer.",
+    proj_self_link:"Découvrir la version auto-hébergée",
+    proj_note:"D'autres applications et outils ciblés sont en préparation.",
+    phil_eyebrow:"Notre approche", phil_h2:"Le logiciel doit laisser de la place au travail.",
+    phil_1_k:"Conçu pour un objectif", phil_1_p:"Chaque application résout un problème clair sans ajouter de distractions.",
+    phil_2_k:"Transparence des données", phil_2_p:"Nous utilisons uniquement les données nécessaires au produit et expliquons clairement ce qu'elles deviennent et qui les contrôle.",
+    phil_3_k:"La bonne plateforme", phil_3_p:"Native, web ou auto-hébergée — choisie pour le besoin, pas pour la tendance.",
     phil_4_k:"Une vision à long terme", phil_4_p:"Des versions millésimées et des chemins de mise à jour clairs — un logiciel que vous pouvez garder.",
-    foot_tagline:"Construisez l'avenir — hébergez-le vous-même.",
+    foot_tagline:"Des logiciels ciblés, conçus pour durer.",
     foot_apps:"Applis", foot_code:"Code", foot_social:"Réseaux", foot_contact:"Contact",
-    foot_copyright:"logiciels auto-hébergés · Pays-Bas"
+    foot_copyright:"studio logiciel indépendant · Pays-Bas"
   }
 };
 
