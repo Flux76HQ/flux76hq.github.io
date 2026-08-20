@@ -14,7 +14,7 @@ Flux76 builds focused apps and web tools for collectors, individuals and entrepr
 
 Flux76 selects native, web or self-hosted technology according to the needs of each product. The company uses only the data a product needs and aims to make clear what happens to that data and who controls it.
 
-## Released product
+## Released products
 
 ### DiscVault
 
@@ -26,6 +26,14 @@ DiscVault helps people catalogue physical film and TV collections, including 4K 
 - Developer and publisher: Flux76
 
 The iOS app can be used without a DiscVault server. The self-hosted edition provides a desktop-oriented collection platform that runs on infrastructure controlled by its operator.
+
+### Marktkraam.site
+
+Marktkraam.site gives market traders their own website so customers can see current products and offers before visiting the stall. Traders can keep their site up to date from their phone without technical knowledge.
+
+- Official product page: https://marktkraam.site/
+- Web-based solution for market traders
+- Developer and publisher: Flux76
 
 ## Official social accounts
 

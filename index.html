@@ -83,9 +83,14 @@
         "width": 1200,
         "height": 630
       },
-      "mainEntity": {
-        "@id": "https://flux76.com/#discvault"
-      },
+      "mainEntity": [
+        {
+          "@id": "https://flux76.com/#discvault"
+        },
+        {
+          "@id": "https://flux76.com/#marktkraam"
+        }
+      ],
       "inLanguage": ["en", "nl", "de", "fr"]
     },
     {
@@ -104,6 +109,18 @@
         "https://apps.apple.com/app/discvault/id6788772918",
         "https://discvault.eu/"
       ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://flux76.com/#marktkraam",
+      "name": "Marktkraam.site",
+      "url": "https://marktkraam.site/",
+      "description": "Marktkraam.site gives market traders their own website and lets them publish current offers from their phone.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "publisher": {
+        "@id": "https://flux76.com/#organization"
+      }
     }
   ]
 }
@@ -181,6 +198,16 @@
   .edition-link::after{content:"\2192";color:var(--aqua)}
   .more-note{margin-top:26px;color:var(--muted);font-size:15px}
 
+  .marktkraam-card{display:grid;grid-template-columns:minmax(310px,.82fr) minmax(0,1.38fr);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);border-radius:18px}
+  .marktkraam-copy{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(30px,4vw,48px)}
+  .marktkraam-copy h2{max-width:12ch}
+  .marktkraam-copy .lead{font-size:17px}
+  .marktkraam-points{display:grid;gap:9px;margin:24px 0 30px;list-style:none}
+  .marktkraam-points li{display:flex;gap:10px;color:var(--body);font-size:14px}
+  .marktkraam-points li::before{content:"\2713";color:var(--aqua);font-family:'JetBrains Mono',monospace;font-weight:700}
+  .marktkraam-visual{display:flex;align-items:center;background:#F8F0E5;border-left:1px solid var(--line);text-decoration:none}
+  .marktkraam-visual img{width:100%;height:auto}
+
   .princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
   .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--ink-2)}
   .p .k{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px}
@@ -204,6 +231,8 @@
     section{padding:70px 0}
     .disc-grid,.princ{grid-template-columns:1fr}
     .edition-visual{height:340px}
+    .marktkraam-card{grid-template-columns:1fr}
+    .marktkraam-visual{border-top:1px solid var(--line);border-left:0}
   }
   @media(max-width:640px){
     .nav-links a:not(.cta){display:none}
@@ -227,7 +256,7 @@
     Flux<span class="grad">76</span>
   </a>
   <div class="nav-links">
-    <a href="#projects" data-i18n="nav_projects">DiscVault</a>
+    <a href="#projects" data-i18n="nav_projects">Solutions</a>
     <a href="#philosophy" data-i18n="nav_philosophy">Philosophy</a>
     <a class="cta" href="https://github.com/Flux76HQ">GitHub ↗</a>
     <div class="lang" id="lang">
@@ -255,7 +284,7 @@
   <p class="lede" data-i18n="hero_lede">Independent studio building thoughtful apps for collectors, individuals and entrepreneurs.</p>
   <p class="sub mono" data-i18n="hero_sub">clear tools · less busywork · more control</p>
   <div class="btns">
-    <a class="btn btn-primary" href="#projects" data-i18n="hero_btn1">Explore DiscVault</a>
+    <a class="btn btn-primary" href="#projects" data-i18n="hero_btn1">Explore our solutions</a>
     <a class="btn btn-ghost" href="https://github.com/Flux76HQ" data-i18n="hero_btn2">View on GitHub</a>
   </div>
 </div></header>
@@ -298,6 +327,25 @@
     <p class="more-note" data-i18n="proj_note">More focused apps and tools are on the way.</p>
   </div></section>
 
+  <section id="marktkraam"><div class="wrap">
+    <div class="marktkraam-card">
+      <div class="marktkraam-copy">
+        <div class="eyebrow" data-i18n="market_eyebrow">Website for market traders</div>
+        <h2 data-i18n="market_h2">Your stall, online too.</h2>
+        <p class="lead" data-i18n="market_lead">Give customers a clear view of what's on your stall today, with a website you can easily update from your phone.</p>
+        <ul class="marktkraam-points">
+          <li data-i18n="market_point_1">Your own recognisable website</li>
+          <li data-i18n="market_point_2">Update offers from your phone</li>
+          <li data-i18n="market_point_3">No technical knowledge required</li>
+        </ul>
+        <a class="btn btn-primary" href="https://marktkraam.site/" data-i18n="market_link">Explore Marktkraam.site</a>
+      </div>
+      <a class="marktkraam-visual" href="https://marktkraam.site/" aria-label="Visit Marktkraam.site">
+        <img src="assets/img/marktkraam-homepage.png" alt="Marktkraam.site homepage for market traders, shown on desktop and mobile" width="1324" height="768" loading="lazy">
+      </a>
+    </div>
+  </div></section>
+
   <section id="philosophy"><div class="wrap">
     <div class="eyebrow" data-i18n="phil_eyebrow">How we work</div>
     <h2 data-i18n="phil_h2">Software should make room for the work.</h2>
@@ -321,10 +369,11 @@
     </div>
     <div class="foot-links">
       <div class="col">
-        <h4 data-i18n="foot_apps">Apps</h4>
+        <h4 data-i18n="foot_apps">Solutions</h4>
         <a href="https://flux76.app">flux76.app</a>
         <a href="https://flux76.app/discvault/">DiscVault for iOS</a>
         <a href="https://discvault.eu">DiscVault self-hosted</a>
+        <a href="https://marktkraam.site/">Marktkraam.site</a>
       </div>
       <div class="col">
         <h4 data-i18n="foot_code">Code</h4>
@@ -359,11 +408,11 @@ const I18N = {
     meta_desc:"Flux76 is an independent Dutch software studio building thoughtful apps for collectors, individuals and entrepreneurs.",
     og_title:"Flux76 — focused software, built to last",
     og_desc:"Thoughtful apps and web tools that solve clear problems without creating more work.",
-    nav_projects:"DiscVault", nav_philosophy:"How we work",
+    nav_projects:"Solutions", nav_philosophy:"How we work",
     hero_h1:'Focused software,<br>built to <span class="grad">last</span>.',
     hero_lede:"Independent studio building thoughtful apps for collectors, individuals and entrepreneurs.",
     hero_sub:"clear tools · less busywork · more control",
-    hero_btn1:"Explore DiscVault", hero_btn2:"View on GitHub",
+    hero_btn1:"Explore our solutions", hero_btn2:"View on GitHub",
     what_eyebrow:"What we build", what_h2:"Software that stays out of your way.",
     what_lead:"Flux76 builds focused apps and web tools for people who want clarity, control and less digital friction. That includes privacy-minded software for personal collections and practical tools for entrepreneurs — designed to support the work without becoming more work. We choose native, web or self-hosted technology based on what fits the problem, keep data and ownership transparent, and avoid unnecessary complexity.",
     proj_eyebrow:"DiscVault", proj_h2:"One collection. Two ways to use it.",
@@ -375,13 +424,17 @@ const I18N = {
     proj_self_p:"Run the complete collection platform yourself, with a desktop-first library, richer controls and room to grow.",
     proj_self_link:"Explore the self-hosted version",
     proj_note:"More focused apps and tools are on the way.",
+    market_eyebrow:"Website for market traders", market_h2:"Your stall, online too.",
+    market_lead:"Give customers a clear view of what's on your stall today, with a website you can easily update from your phone.",
+    market_point_1:"Your own recognisable website", market_point_2:"Update offers from your phone",
+    market_point_3:"No technical knowledge required", market_link:"Explore Marktkraam.site",
     phil_eyebrow:"How we work", phil_h2:"Software should make room for the work.",
     phil_1_k:"Purpose-built", phil_1_p:"Each app solves a clear problem without piling on distractions.",
     phil_2_k:"Transparent about data", phil_2_p:"We use only the data a product needs and make clear what happens to it and who controls it.",
     phil_3_k:"The right platform", phil_3_p:"Native, web or self-hosted — chosen for the job, not for the trend.",
     phil_4_k:"Long-term thinking", phil_4_p:"Year-versioned releases and clear upgrade paths — software you can keep.",
     foot_tagline:"Focused software, built to last.",
-    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
+    foot_apps:"Solutions", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
     foot_copyright:"independent software studio · Netherlands"
   },
   nl: {
@@ -389,11 +442,11 @@ const I18N = {
     meta_desc:"Flux76 is een onafhankelijke Nederlandse softwarestudio die doordachte apps bouwt voor verzamelaars, particulieren en ondernemers.",
     og_title:"Flux76 — gerichte software, gebouwd om te blijven",
     og_desc:"Doordachte apps en webtools die duidelijke problemen oplossen zonder extra werk te veroorzaken.",
-    nav_projects:"DiscVault", nav_philosophy:"Werkwijze",
+    nav_projects:"Oplossingen", nav_philosophy:"Werkwijze",
     hero_h1:'Gerichte software,<br>gebouwd om te <span class="grad">blijven</span>.',
     hero_lede:"Onafhankelijke studio die doordachte apps bouwt voor verzamelaars, particulieren en ondernemers.",
     hero_sub:"duidelijke tools · minder rompslomp · meer controle",
-    hero_btn1:"Bekijk DiscVault", hero_btn2:"Bekijk op GitHub",
+    hero_btn1:"Bekijk onze oplossingen", hero_btn2:"Bekijk op GitHub",
     what_eyebrow:"Wat we bouwen", what_h2:"Software die niet in de weg zit.",
     what_lead:"Flux76 bouwt gerichte apps en webtools voor mensen die overzicht, controle en minder digitale rompslomp willen. Dat zijn privacybewuste oplossingen voor persoonlijk gebruik én praktische hulpmiddelen voor ondernemers — ontworpen om het werk te ondersteunen zonder zelf extra werk te worden. We kiezen native, web of self-hosted technologie op basis van wat bij het probleem past, maken eigenaarschap en datagebruik duidelijk en vermijden onnodige complexiteit.",
     proj_eyebrow:"DiscVault", proj_h2:"Eén collectie. Twee manieren om ermee te werken.",
@@ -405,13 +458,17 @@ const I18N = {
     proj_self_p:"Draai het complete collectieplatform zelf, met een desktopgerichte bibliotheek, uitgebreidere bediening en ruimte om te groeien.",
     proj_self_link:"Bekijk de self-hosted versie",
     proj_note:"Er komen meer gerichte apps en tools aan.",
+    market_eyebrow:"Voor marktkooplui", market_h2:"Jouw kraam, ook online.",
+    market_lead:"Laat klanten thuis al zien wat er vandaag op je kraam ligt. Je eigen website, eenvoudig bijgewerkt vanaf je telefoon.",
+    market_point_1:"Je eigen herkenbare website", market_point_2:"Aanbiedingen bijwerken vanaf je telefoon",
+    market_point_3:"Geen technische kennis nodig", market_link:"Bekijk Marktkraam.site",
     phil_eyebrow:"Werkwijze", phil_h2:"Software moet ruimte maken voor het werk.",
     phil_1_k:"Doelgericht gebouwd", phil_1_p:"Elke app lost een duidelijk probleem op zonder afleiding toe te voegen.",
     phil_2_k:"Transparant over data", phil_2_p:"We gebruiken alleen de data die een product nodig heeft en maken duidelijk wat ermee gebeurt en wie er controle over heeft.",
     phil_3_k:"Het juiste platform", phil_3_p:"Native, web of self-hosted — gekozen voor het werk, niet voor de trend.",
     phil_4_k:"Langetermijndenken", phil_4_p:"Releases per jaartal en duidelijke upgradepaden — software die je kunt houden.",
     foot_tagline:"Gerichte software, gebouwd om te blijven.",
-    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
+    foot_apps:"Oplossingen", foot_code:"Code", foot_social:"Social", foot_contact:"Contact",
     foot_copyright:"onafhankelijke softwarestudio · Nederland"
   },
   de: {
@@ -419,11 +476,11 @@ const I18N = {
     meta_desc:"Flux76 ist ein unabhängiges niederländisches Softwarestudio, das durchdachte Apps für Sammler, Privatpersonen und Unternehmer entwickelt.",
     og_title:"Flux76 — fokussierte Software, für die Zukunft gebaut",
     og_desc:"Durchdachte Apps und Web-Tools, die klare Probleme lösen, ohne neue Arbeit zu schaffen.",
-    nav_projects:"DiscVault", nav_philosophy:"Arbeitsweise",
+    nav_projects:"Lösungen", nav_philosophy:"Arbeitsweise",
     hero_h1:'Fokussierte Software,<br>für die Zukunft <span class="grad">gebaut</span>.',
     hero_lede:"Unabhängiges Studio für durchdachte Apps für Sammler, Privatpersonen und Unternehmer.",
     hero_sub:"klare Werkzeuge · weniger Aufwand · mehr Kontrolle",
-    hero_btn1:"DiscVault entdecken", hero_btn2:"Auf GitHub ansehen",
+    hero_btn1:"Unsere Lösungen entdecken", hero_btn2:"Auf GitHub ansehen",
     what_eyebrow:"Was wir entwickeln", what_h2:"Software, die nicht im Weg steht.",
     what_lead:"Flux76 entwickelt fokussierte Apps und Web-Tools für Menschen, die Klarheit, Kontrolle und weniger digitalen Aufwand wollen. Dazu gehören datenschutzbewusste Lösungen für den persönlichen Gebrauch ebenso wie praktische Werkzeuge für Unternehmer — entwickelt, um die Arbeit zu unterstützen, ohne selbst mehr Arbeit zu verursachen. Wir wählen native, webbasierte oder selbstgehostete Technologie passend zum Problem, machen Datennutzung und Eigentum transparent und vermeiden unnötige Komplexität.",
     proj_eyebrow:"DiscVault", proj_h2:"Eine Sammlung. Zwei Wege, sie zu nutzen.",
@@ -435,13 +492,17 @@ const I18N = {
     proj_self_p:"Betreibe die vollständige Sammlungsplattform selbst — mit einer desktoporientierten Bibliothek, umfangreicheren Funktionen und Platz zum Wachsen.",
     proj_self_link:"Selbstgehostete Version entdecken",
     proj_note:"Weitere fokussierte Apps und Werkzeuge sind in Arbeit.",
+    market_eyebrow:"Website für Markthändler", market_h2:"Dein Marktstand, auch online.",
+    market_lead:"Zeige deinen Kunden schon zu Hause, was heute an deinem Stand angeboten wird. Deine eigene Website, einfach vom Smartphone aus aktualisiert.",
+    market_point_1:"Deine eigene unverwechselbare Website", market_point_2:"Angebote vom Smartphone aus aktualisieren",
+    market_point_3:"Keine technischen Kenntnisse erforderlich", market_link:"Marktkraam.site entdecken",
     phil_eyebrow:"Arbeitsweise", phil_h2:"Software sollte Raum für die Arbeit schaffen.",
     phil_1_k:"Gezielt entwickelt", phil_1_p:"Jede App löst ein klares Problem, ohne neue Ablenkungen zu schaffen.",
     phil_2_k:"Transparenter Umgang mit Daten", phil_2_p:"Wir verwenden nur die Daten, die ein Produkt benötigt, und machen transparent, was mit ihnen geschieht und wer die Kontrolle darüber hat.",
     phil_3_k:"Die passende Plattform", phil_3_p:"Nativ, webbasiert oder selbstgehostet — gewählt für die Aufgabe, nicht für den Trend.",
     phil_4_k:"Langfristig gedacht", phil_4_p:"Nach Jahr versionierte Releases und klare Upgrade-Pfade — Software, die du behalten kannst.",
     foot_tagline:"Fokussierte Software, für die Zukunft gebaut.",
-    foot_apps:"Apps", foot_code:"Code", foot_social:"Social", foot_contact:"Kontakt",
+    foot_apps:"Lösungen", foot_code:"Code", foot_social:"Social", foot_contact:"Kontakt",
     foot_copyright:"unabhängiges Softwarestudio · Niederlande"
   },
   fr: {
@@ -449,11 +510,11 @@ const I18N = {
     meta_desc:"Flux76 est un studio logiciel néerlandais indépendant qui conçoit des applications réfléchies pour les collectionneurs, les particuliers et les entrepreneurs.",
     og_title:"Flux76 — des logiciels ciblés, conçus pour durer",
     og_desc:"Des applications et outils web réfléchis qui résolvent des problèmes clairs sans créer davantage de travail.",
-    nav_projects:"DiscVault", nav_philosophy:"Notre approche",
+    nav_projects:"Solutions", nav_philosophy:"Notre approche",
     hero_h1:'Des logiciels ciblés,<br>conçus pour <span class="grad">durer</span>.',
     hero_lede:"Studio indépendant qui conçoit des applications réfléchies pour les collectionneurs, les particuliers et les entrepreneurs.",
     hero_sub:"des outils clairs · moins de contraintes · plus de contrôle",
-    hero_btn1:"Découvrir DiscVault", hero_btn2:"Voir sur GitHub",
+    hero_btn1:"Découvrir nos solutions", hero_btn2:"Voir sur GitHub",
     what_eyebrow:"Ce que nous créons", what_h2:"Des logiciels qui savent se faire oublier.",
     what_lead:"Flux76 conçoit des applications et des outils web ciblés pour celles et ceux qui recherchent plus de clarté, de contrôle et moins de friction numérique. Cela comprend des logiciels respectueux de la vie privée pour un usage personnel, ainsi que des outils pratiques pour les entrepreneurs — pensés pour soutenir le travail sans en créer davantage. Nous choisissons une technologie native, web ou auto-hébergée selon le besoin, rendons l'utilisation des données et la propriété transparentes et évitons la complexité inutile.",
     proj_eyebrow:"DiscVault", proj_h2:"Une collection. Deux façons de l'utiliser.",
@@ -465,13 +526,17 @@ const I18N = {
     proj_self_p:"Hébergez vous-même la plateforme de collection complète, avec une bibliothèque pensée pour le bureau, des contrôles avancés et de la place pour évoluer.",
     proj_self_link:"Découvrir la version auto-hébergée",
     proj_note:"D'autres applications et outils ciblés sont en préparation.",
+    market_eyebrow:"Site web pour commerçants de marché", market_h2:"Votre étal, aussi en ligne.",
+    market_lead:"Montrez à vos clients, avant leur venue, ce que vous proposez aujourd'hui sur votre étal. Votre propre site web, facile à mettre à jour depuis votre téléphone.",
+    market_point_1:"Votre propre site web reconnaissable", market_point_2:"Mettez à jour les offres depuis votre téléphone",
+    market_point_3:"Aucune connaissance technique requise", market_link:"Découvrir Marktkraam.site",
     phil_eyebrow:"Notre approche", phil_h2:"Le logiciel doit laisser de la place au travail.",
     phil_1_k:"Conçu pour un objectif", phil_1_p:"Chaque application résout un problème clair sans ajouter de distractions.",
     phil_2_k:"Transparence des données", phil_2_p:"Nous utilisons uniquement les données nécessaires au produit et expliquons clairement ce qu'elles deviennent et qui les contrôle.",
     phil_3_k:"La bonne plateforme", phil_3_p:"Native, web ou auto-hébergée — choisie pour le besoin, pas pour la tendance.",
     phil_4_k:"Une vision à long terme", phil_4_p:"Des versions millésimées et des chemins de mise à jour clairs — un logiciel que vous pouvez garder.",
     foot_tagline:"Des logiciels ciblés, conçus pour durer.",
-    foot_apps:"Applis", foot_code:"Code", foot_social:"Réseaux", foot_contact:"Contact",
+    foot_apps:"Solutions", foot_code:"Code", foot_social:"Réseaux", foot_contact:"Contact",
     foot_copyright:"studio logiciel indépendant · Pays-Bas"
   }
 };
