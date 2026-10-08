@@ -37,7 +37,7 @@ Marktkraam.site gives market traders their own website so customers can see curr
 
 ### Sint Maarten
 
-Sint Maarten is an installable, offline-capable web app (PWA) with an interactive neighbourhood map. Houses are marked green, red or unmarked, so visitors can see which houses are happy to receive Sint Maarten visitors. Residents can change their own house with administrator approval, and the administrator manages everything behind a passkey. It runs as a single self-hosted Docker container.
+Sint Maarten is an installable, offline-capable web app (PWA) with an interactive neighbourhood map. Houses are marked green, red or unmarked, so visitors can see which houses are happy to receive Halloween visitors. Residents can change their own house with administrator approval, and the administrator manages everything behind a passkey. It runs as a single self-hosted Docker container.
 
 - Project page and source: https://github.com/helmerzNL/Sintmaarten
 - Screenshots: https://github.com/helmerzNL/Sintmaarten/tree/main/docs/screenshots
