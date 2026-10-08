@@ -89,6 +89,9 @@
         },
         {
           "@id": "https://flux76.com/#marktkraam"
+        },
+        {
+          "@id": "https://flux76.com/#sintmaarten"
         }
       ],
       "inLanguage": ["en", "nl", "de", "fr"]
@@ -118,6 +121,18 @@
       "description": "Marktkraam.site gives market traders their own website and lets them publish current offers from their phone.",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
+      "publisher": {
+        "@id": "https://flux76.com/#organization"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://flux76.com/#sintmaarten",
+      "name": "Sint Maarten",
+      "url": "https://github.com/helmerzNL/Sintmaarten",
+      "description": "Sint Maarten is an installable, offline-capable web app with an interactive neighbourhood map that shows which houses are happy to receive Sint Maarten visitors.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": ["Web", "Docker"],
       "publisher": {
         "@id": "https://flux76.com/#organization"
       }
@@ -208,6 +223,18 @@
   .marktkraam-visual{display:flex;align-items:center;background:#F8F0E5;border-left:1px solid var(--line);text-decoration:none}
   .marktkraam-visual img{width:100%;height:auto}
 
+  .sm-card{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(310px,.82fr);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);border-radius:18px}
+  .sm-visual{display:flex;align-items:center;justify-content:center;gap:18px;padding:clamp(22px,3vw,36px);background:#0C0B22;border-right:1px solid var(--line);text-decoration:none}
+  .sm-visual img{display:block;min-width:0;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 34px rgba(0,0,0,.28)}
+  .sm-visual .sm-desktop{flex:1 1 0;width:100%;height:auto}
+  .sm-visual .sm-mobile{flex:0 0 auto;width:26%;height:auto}
+  .sm-copy{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(30px,4vw,48px)}
+  .sm-copy h2{max-width:12ch}
+  .sm-copy .lead{font-size:17px}
+  .sm-points{display:grid;gap:9px;margin:24px 0 30px;list-style:none}
+  .sm-points li{display:flex;gap:10px;color:var(--body);font-size:14px}
+  .sm-points li::before{content:"\2713";color:var(--aqua);font-family:'JetBrains Mono',monospace;font-weight:700}
+
   .princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
   .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--ink-2)}
   .p .k{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin-bottom:7px}
@@ -233,6 +260,8 @@
     .edition-visual{height:340px}
     .marktkraam-card{grid-template-columns:1fr}
     .marktkraam-visual{border-top:1px solid var(--line);border-left:0}
+    .sm-card{grid-template-columns:1fr}
+    .sm-visual{order:2;border-top:1px solid var(--line);border-right:0}
   }
   @media(max-width:640px){
     .nav-links a:not(.cta){display:none}
@@ -346,6 +375,26 @@
     </div>
   </div></section>
 
+  <section id="sintmaarten"><div class="wrap">
+    <div class="sm-card">
+      <a class="sm-visual" href="https://github.com/helmerzNL/Sintmaarten" aria-label="Sint Maarten on GitHub">
+        <img class="sm-desktop" src="https://raw.githubusercontent.com/helmerzNL/Sintmaarten/main/docs/screenshots/publiek.png" alt="Sint Maarten neighbourhood map in the browser, with houses marked green and red" width="1280" height="800" loading="lazy">
+        <img class="sm-mobile" src="https://raw.githubusercontent.com/helmerzNL/Sintmaarten/main/docs/screenshots/mobiel.png" alt="Sint Maarten installed as an app on a phone" width="780" height="1560" loading="lazy">
+      </a>
+      <div class="sm-copy">
+        <div class="eyebrow" data-i18n="sm_eyebrow">Neighbourhood web app (PWA)</div>
+        <h2 data-i18n="sm_h2">Sint Maarten, mapped.</h2>
+        <p class="lead" data-i18n="sm_lead">An interactive map of the neighbourhood that shows which houses are happy to receive Sint Maarten visitors and which would rather not.</p>
+        <ul class="sm-points">
+          <li data-i18n="sm_point_1">Installable as an app, works offline</li>
+          <li data-i18n="sm_point_2">Residents update their own house, you approve</li>
+          <li data-i18n="sm_point_3">Secure admin with passkeys, self-hosted</li>
+        </ul>
+        <a class="btn btn-primary" href="https://github.com/helmerzNL/Sintmaarten" data-i18n="sm_link">View Sint Maarten</a>
+      </div>
+    </div>
+  </div></section>
+
   <section id="philosophy"><div class="wrap">
     <div class="eyebrow" data-i18n="phil_eyebrow">How we work</div>
     <h2 data-i18n="phil_h2">Software should make room for the work.</h2>
@@ -374,6 +423,7 @@
         <a href="https://flux76.app/discvault/">DiscVault for iOS</a>
         <a href="https://discvault.eu">DiscVault self-hosted</a>
         <a href="https://marktkraam.site/">Marktkraam.site</a>
+        <a href="https://github.com/helmerzNL/Sintmaarten">Sint Maarten</a>
       </div>
       <div class="col">
         <h4 data-i18n="foot_code">Code</h4>
@@ -428,6 +478,10 @@ const I18N = {
     market_lead:"Give customers a clear view of what's on your stall today, with a website you can easily update from your phone.",
     market_point_1:"Your own recognisable website", market_point_2:"Update offers from your phone",
     market_point_3:"No technical knowledge required", market_link:"Explore Marktkraam.site",
+    sm_eyebrow:"Neighbourhood web app (PWA)", sm_h2:"Sint Maarten, mapped.",
+    sm_lead:"An interactive map of the neighbourhood that shows which houses are happy to receive Sint Maarten visitors and which would rather not.",
+    sm_point_1:"Installable as an app, works offline", sm_point_2:"Residents update their own house, you approve",
+    sm_point_3:"Secure admin with passkeys, self-hosted", sm_link:"View Sint Maarten",
     phil_eyebrow:"How we work", phil_h2:"Software should make room for the work.",
     phil_1_k:"Purpose-built", phil_1_p:"Each app solves a clear problem without piling on distractions.",
     phil_2_k:"Transparent about data", phil_2_p:"We use only the data a product needs and make clear what happens to it and who controls it.",
@@ -462,6 +516,10 @@ const I18N = {
     market_lead:"Laat klanten thuis al zien wat er vandaag op je kraam ligt. Je eigen website, eenvoudig bijgewerkt vanaf je telefoon.",
     market_point_1:"Je eigen herkenbare website", market_point_2:"Aanbiedingen bijwerken vanaf je telefoon",
     market_point_3:"Geen technische kennis nodig", market_link:"Bekijk Marktkraam.site",
+    sm_eyebrow:"Wijk-webapp (PWA)", sm_h2:"Sint Maarten, in kaart gebracht.",
+    sm_lead:"Een interactieve wijkkaart die laat zien welke huizen graag Sint Maarten-bezoek ontvangen en welke liever niet.",
+    sm_point_1:"Installeerbaar als app, werkt offline", sm_point_2:"Bewoners passen hun eigen huis aan, jij keurt goed",
+    sm_point_3:"Veilig beheer met passkeys, zelf te hosten", sm_link:"Bekijk Sint Maarten",
     phil_eyebrow:"Werkwijze", phil_h2:"Software moet ruimte maken voor het werk.",
     phil_1_k:"Doelgericht gebouwd", phil_1_p:"Elke app lost een duidelijk probleem op zonder afleiding toe te voegen.",
     phil_2_k:"Transparant over data", phil_2_p:"We gebruiken alleen de data die een product nodig heeft en maken duidelijk wat ermee gebeurt en wie er controle over heeft.",
@@ -496,6 +554,10 @@ const I18N = {
     market_lead:"Zeige deinen Kunden schon zu Hause, was heute an deinem Stand angeboten wird. Deine eigene Website, einfach vom Smartphone aus aktualisiert.",
     market_point_1:"Deine eigene unverwechselbare Website", market_point_2:"Angebote vom Smartphone aus aktualisieren",
     market_point_3:"Keine technischen Kenntnisse erforderlich", market_link:"Marktkraam.site entdecken",
+    sm_eyebrow:"Nachbarschafts-Web-App (PWA)", sm_h2:"Sankt Martin, auf der Karte.",
+    sm_lead:"Eine interaktive Karte der Nachbarschaft, die zeigt, welche Häuser sich über Sankt-Martins-Besuch freuen und welche lieber nicht.",
+    sm_point_1:"Als App installierbar, funktioniert offline", sm_point_2:"Bewohner ändern ihr eigenes Haus, du genehmigst",
+    sm_point_3:"Sicherer Admin-Bereich mit Passkeys, selbst gehostet", sm_link:"Sint Maarten ansehen",
     phil_eyebrow:"Arbeitsweise", phil_h2:"Software sollte Raum für die Arbeit schaffen.",
     phil_1_k:"Gezielt entwickelt", phil_1_p:"Jede App löst ein klares Problem, ohne neue Ablenkungen zu schaffen.",
     phil_2_k:"Transparenter Umgang mit Daten", phil_2_p:"Wir verwenden nur die Daten, die ein Produkt benötigt, und machen transparent, was mit ihnen geschieht und wer die Kontrolle darüber hat.",
@@ -530,6 +592,10 @@ const I18N = {
     market_lead:"Montrez à vos clients, avant leur venue, ce que vous proposez aujourd'hui sur votre étal. Votre propre site web, facile à mettre à jour depuis votre téléphone.",
     market_point_1:"Votre propre site web reconnaissable", market_point_2:"Mettez à jour les offres depuis votre téléphone",
     market_point_3:"Aucune connaissance technique requise", market_link:"Découvrir Marktkraam.site",
+    sm_eyebrow:"Application web de quartier (PWA)", sm_h2:"Sint Maarten, sur la carte.",
+    sm_lead:"Une carte interactive du quartier qui montre quelles maisons accueillent volontiers les visiteurs de la Saint-Martin et lesquelles préfèrent s'abstenir.",
+    sm_point_1:"Installable comme application, fonctionne hors ligne", sm_point_2:"Les habitants modifient leur propre maison, vous validez",
+    sm_point_3:"Administration sécurisée par passkeys, auto-hébergée", sm_link:"Découvrir Sint Maarten",
     phil_eyebrow:"Notre approche", phil_h2:"Le logiciel doit laisser de la place au travail.",
     phil_1_k:"Conçu pour un objectif", phil_1_p:"Chaque application résout un problème clair sans ajouter de distractions.",
     phil_2_k:"Transparence des données", phil_2_p:"Nous utilisons uniquement les données nécessaires au produit et expliquons clairement ce qu'elles deviennent et qui les contrôle.",
