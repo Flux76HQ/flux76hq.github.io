@@ -91,7 +91,13 @@
           "@id": "https://flux76.com/#marktkraam"
         },
         {
-          "@id": "https://flux76.com/#sintmaarten"
+          "@id": "https://flux76.com/#doorbell-map"
+        },
+        {
+          "@id": "https://flux76.com/#mealieshopper"
+        },
+        {
+          "@id": "https://flux76.com/#3d-print-pricing"
         }
       ],
       "inLanguage": ["en", "nl", "de", "fr"]
@@ -127,11 +133,35 @@
     },
     {
       "@type": "WebApplication",
-      "@id": "https://flux76.com/#sintmaarten",
-      "name": "Sint Maarten",
-      "url": "https://github.com/helmerzNL/Sintmaarten",
-      "description": "Sint Maarten is an installable, offline-capable web app with an interactive neighbourhood map that shows which houses are happy to receive Halloween visitors.",
+      "@id": "https://flux76.com/#doorbell-map",
+      "name": "Doorbell Map",
+      "url": "https://github.com/helmerzNL/Doorbell-Map",
+      "description": "Doorbell Map is a self-hosted, installable web app with an interactive neighbourhood map that shows which houses are happy to receive Halloween visitors.",
       "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": ["Web", "Docker"],
+      "publisher": {
+        "@id": "https://flux76.com/#organization"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://flux76.com/#mealieshopper",
+      "name": "MealieShopper",
+      "url": "https://github.com/helmerzNL/MealieShopper",
+      "description": "MealieShopper is a self-hosted web app that turns a Mealie week menu into a basket at Albert Heijn, Picnic or Jumbo.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": ["Web", "Docker"],
+      "publisher": {
+        "@id": "https://flux76.com/#organization"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://flux76.com/#3d-print-pricing",
+      "name": "3D Print Pricing",
+      "url": "https://github.com/Flux76HQ/3dprint_pricing",
+      "description": "3D Print Pricing is a self-hosted web app for 3D-print businesses to calculate the cost price of a print, manage filament stock and turn orders into invoices.",
+      "applicationCategory": "BusinessApplication",
       "operatingSystem": ["Web", "Docker"],
       "publisher": {
         "@id": "https://flux76.com/#organization"
@@ -223,17 +253,35 @@
   .marktkraam-visual{display:flex;align-items:center;background:#F8F0E5;border-left:1px solid var(--line);text-decoration:none}
   .marktkraam-visual img{width:100%;height:auto}
 
-  .sm-card{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(310px,.82fr);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);border-radius:18px}
-  .sm-visual{display:flex;align-items:center;justify-content:center;gap:18px;padding:clamp(22px,3vw,36px);background:#0C0B22;border-right:1px solid var(--line);text-decoration:none}
-  .sm-visual img{display:block;min-width:0;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 34px rgba(0,0,0,.28)}
-  .sm-visual .sm-desktop{flex:1 1 0;width:100%;height:auto}
-  .sm-visual .sm-mobile{flex:0 0 auto;width:26%;height:auto}
-  .sm-copy{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(30px,4vw,48px)}
-  .sm-copy h2{max-width:12ch}
-  .sm-copy .lead{font-size:17px}
-  .sm-points{display:grid;gap:9px;margin:24px 0 30px;list-style:none}
-  .sm-points li{display:flex;gap:10px;color:var(--body);font-size:14px}
-  .sm-points li::before{content:"\2713";color:var(--aqua);font-family:'JetBrains Mono',monospace;font-weight:700}
+  .apps-head{margin-bottom:30px}
+  .apps-head .lead{margin-bottom:0}
+  .carousel{position:relative}
+  .car-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:18px}
+  .car-track::-webkit-scrollbar{display:none}
+  .car-track:focus-visible{outline-offset:6px}
+  .app-slide{flex:0 0 100%;min-width:0;scroll-snap-align:center;display:grid;grid-template-columns:minmax(0,1.38fr) minmax(310px,.82fr);overflow:hidden;background:var(--ink-2);border:1px solid var(--line);border-radius:18px}
+  .app-visual{display:flex;align-items:center;justify-content:center;gap:18px;padding:clamp(22px,3vw,36px);background:#0C0B22;border-right:1px solid var(--line);text-decoration:none}
+  .app-visual img{display:block;min-width:0;height:auto;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 34px rgba(0,0,0,.28)}
+  .app-visual .shot-desktop{flex:1 1 0;width:100%}
+  .app-visual .shot-mobile{flex:0 0 auto;width:24%}
+  .app-visual.single img{width:100%}
+  .app-copy{display:flex;flex-direction:column;align-items:flex-start;padding:clamp(28px,4vw,46px)}
+  .app-copy h3{font-family:'Space Grotesk';font-weight:600;font-size:clamp(26px,3.6vw,34px);letter-spacing:-.6px;line-height:1.15;margin:12px 0 14px}
+  .app-copy p{color:var(--body);font-size:16px}
+  .app-points{display:grid;gap:9px;margin:22px 0 28px;list-style:none}
+  .app-points li{display:flex;gap:10px;color:var(--body);font-size:14px}
+  .app-points li::before{content:"\2713";color:var(--aqua);font-family:'JetBrains Mono',monospace;font-weight:700}
+  .car-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
+  .car-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:var(--body);background:var(--ink-2);border:1px solid var(--line);border-radius:50%;cursor:pointer;transition:border-color .2s,color .2s}
+  .car-btn:hover{color:var(--text);border-color:#45416B}
+  .car-btn svg{width:18px;height:18px}
+  .car-dots{display:flex;gap:6px;list-style:none}
+  .car-dot{display:block;min-width:44px;height:44px;position:relative;padding:0;background:none;border:0;cursor:pointer;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap}
+  .car-dot::after{content:"";position:absolute;left:50%;bottom:10px;width:22px;height:3px;margin-left:-11px;border-radius:3px;background:var(--line);transition:background .2s}
+  .car-dot[aria-current="true"]{color:var(--text)}
+  .car-dot[aria-current="true"]::after{background:var(--aqua)}
+  .car-dot{padding:0 8px 8px}
+  @media(prefers-reduced-motion:no-preference){.car-track{scroll-behavior:smooth}}
 
   .princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
   .p{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--ink-2)}
@@ -260,8 +308,9 @@
     .edition-visual{height:340px}
     .marktkraam-card{grid-template-columns:1fr}
     .marktkraam-visual{border-top:1px solid var(--line);border-left:0}
-    .sm-card{grid-template-columns:1fr}
-    .sm-visual{order:2;border-top:1px solid var(--line);border-right:0}
+    .app-slide{grid-template-columns:1fr}
+    .app-visual{order:2;border-top:1px solid var(--line);border-right:0}
+    .car-dot{min-width:0;font-size:0;padding:0 14px 8px}
   }
   @media(max-width:640px){
     .nav-links a:not(.cta){display:none}
@@ -375,22 +424,69 @@
     </div>
   </div></section>
 
-  <section id="sintmaarten"><div class="wrap">
-    <div class="sm-card">
-      <a class="sm-visual" href="https://github.com/helmerzNL/Sintmaarten" aria-label="Sint Maarten on GitHub">
-        <img class="sm-desktop" src="https://raw.githubusercontent.com/helmerzNL/Sintmaarten/main/docs/screenshots/publiek.png" alt="Sint Maarten neighbourhood map in the browser, with houses marked green and red" width="1280" height="800" loading="lazy">
-        <img class="sm-mobile" src="https://raw.githubusercontent.com/helmerzNL/Sintmaarten/main/docs/screenshots/mobiel.png" alt="Sint Maarten installed as an app on a phone" width="780" height="1560" loading="lazy">
+  <section id="apps"><div class="wrap">
+    <div class="apps-head">
+      <div class="eyebrow" data-i18n="apps_eyebrow">Self-hosted web apps</div>
+      <h2 data-i18n="apps_h2">Small apps you run yourself.</h2>
+      <p class="lead" data-i18n="apps_lead">Each one runs on your own server with Docker, so your data stays with you. Browse the code on GitHub.</p>
+    </div>
+    <div class="carousel" id="apps-carousel" role="region" aria-roledescription="carousel" aria-label="Self-hosted web apps">
+      <div class="car-track" id="car-track" tabindex="0">
+    <article class="app-slide" id="app-dm" role="group" aria-roledescription="slide" aria-label="Doorbell Map">
+      <a class="app-visual" href="https://github.com/helmerzNL/Doorbell-Map" tabindex="-1" aria-hidden="true">
+        <img class="shot-desktop" src="https://raw.githubusercontent.com/helmerzNL/Doorbell-Map/main/docs/screenshots/publiek-engels-taalmenu.png" alt="Doorbell Map neighbourhood map in the browser, with houses marked green and red" width="1280" height="800" loading="lazy">
+        <img class="shot-mobile" src="https://raw.githubusercontent.com/helmerzNL/Doorbell-Map/main/docs/screenshots/mobiel-engels-donker.png" alt="Doorbell Map installed as an app on a phone, in dark mode" width="780" height="1560" loading="lazy">
       </a>
-      <div class="sm-copy">
-        <div class="eyebrow" data-i18n="sm_eyebrow">Neighbourhood web app (PWA)</div>
-        <h2 data-i18n="sm_h2">Sint Maarten, mapped.</h2>
-        <p class="lead" data-i18n="sm_lead">An interactive map of the neighbourhood that shows which houses are happy to receive Halloween visitors and which would rather not.</p>
-        <ul class="sm-points">
-          <li data-i18n="sm_point_1">Installable as an app, works offline</li>
-          <li data-i18n="sm_point_2">Residents update their own house, you approve</li>
-          <li data-i18n="sm_point_3">Secure admin with passkeys, self-hosted</li>
+      <div class="app-copy">
+        <div class="tag" data-i18n="apps_tag">Self-hosted web app</div>
+        <h3>Doorbell Map</h3>
+        <p data-i18n="dm_p"></p>
+        <ul class="app-points">
+          <li data-i18n="dm_1"></li>
+          <li data-i18n="dm_2"></li>
+          <li data-i18n="dm_3"></li>
         </ul>
-        <a class="btn btn-primary" href="https://github.com/helmerzNL/Sintmaarten" data-i18n="sm_link">View Sint Maarten</a>
+        <a class="btn btn-primary" href="https://github.com/helmerzNL/Doorbell-Map" aria-label="Doorbell Map: GitHub"><span data-i18n="apps_link">View on GitHub</span></a>
+      </div>
+    </article>
+    <article class="app-slide" id="app-ms" role="group" aria-roledescription="slide" aria-label="MealieShopper">
+      <a class="app-visual single" href="https://github.com/helmerzNL/MealieShopper" tabindex="-1" aria-hidden="true">
+        <img src="https://raw.githubusercontent.com/helmerzNL/MealieShopper/main/docs/screenshots/en/plan.png" alt="MealieShopper on a computer and a phone: the week menu with pictures from Mealie" width="1376" height="700" loading="lazy">
+      </a>
+      <div class="app-copy">
+        <div class="tag" data-i18n="apps_tag">Self-hosted web app</div>
+        <h3>MealieShopper</h3>
+        <p data-i18n="ms_p"></p>
+        <ul class="app-points">
+          <li data-i18n="ms_1"></li>
+          <li data-i18n="ms_2"></li>
+          <li data-i18n="ms_3"></li>
+        </ul>
+        <a class="btn btn-primary" href="https://github.com/helmerzNL/MealieShopper" aria-label="MealieShopper: GitHub"><span data-i18n="apps_link">View on GitHub</span></a>
+      </div>
+    </article>
+    <article class="app-slide" id="app-pp" role="group" aria-roledescription="slide" aria-label="3D Print Pricing">
+      <a class="app-visual" href="https://github.com/Flux76HQ/3dprint_pricing" tabindex="-1" aria-hidden="true">
+        <img class="shot-desktop" src="https://raw.githubusercontent.com/Flux76HQ/3dprint_pricing/main/docs/assets/desktop-calculation.png" alt="3D Print Pricing on the desktop: a calculation with the cost price summary" width="1920" height="1350" loading="lazy">
+        <img class="shot-mobile" src="https://raw.githubusercontent.com/Flux76HQ/3dprint_pricing/main/docs/assets/ios-calculation.png" alt="3D Print Pricing on an iPhone: the cost price of a calculation" width="626" height="1314" loading="lazy">
+      </a>
+      <div class="app-copy">
+        <div class="tag" data-i18n="apps_tag">Self-hosted web app</div>
+        <h3>3D Print Pricing</h3>
+        <p data-i18n="pp_p"></p>
+        <ul class="app-points">
+          <li data-i18n="pp_1"></li>
+          <li data-i18n="pp_2"></li>
+          <li data-i18n="pp_3"></li>
+        </ul>
+        <a class="btn btn-primary" href="https://github.com/Flux76HQ/3dprint_pricing" aria-label="3D Print Pricing: GitHub"><span data-i18n="apps_link">View on GitHub</span></a>
+      </div>
+    </article>
+      </div>
+      <div class="car-controls">
+        <button class="car-btn" id="car-prev" type="button" aria-controls="car-track" data-i18n-aria="apps_prev" aria-label="Previous app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <ul class="car-dots" id="car-dots"></ul>
+        <button class="car-btn" id="car-next" type="button" aria-controls="car-track" data-i18n-aria="apps_next" aria-label="Next app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
   </div></section>
@@ -423,7 +519,9 @@
         <a href="https://flux76.app/discvault/">DiscVault for iOS</a>
         <a href="https://discvault.eu">DiscVault self-hosted</a>
         <a href="https://marktkraam.site/">Marktkraam.site</a>
-        <a href="https://github.com/helmerzNL/Sintmaarten">Sint Maarten</a>
+        <a href="https://github.com/helmerzNL/Doorbell-Map">Doorbell Map</a>
+        <a href="https://github.com/helmerzNL/MealieShopper">MealieShopper</a>
+        <a href="https://github.com/Flux76HQ/3dprint_pricing">3D Print Pricing</a>
       </div>
       <div class="col">
         <h4 data-i18n="foot_code">Code</h4>
@@ -478,10 +576,25 @@ const I18N = {
     market_lead:"Give customers a clear view of what's on your stall today, with a website you can easily update from your phone.",
     market_point_1:"Your own recognisable website", market_point_2:"Update offers from your phone",
     market_point_3:"No technical knowledge required", market_link:"Explore Marktkraam.site",
-    sm_eyebrow:"Neighbourhood web app (PWA)", sm_h2:"Sint Maarten, mapped.",
-    sm_lead:"An interactive map of the neighbourhood that shows which houses are happy to receive Halloween visitors and which would rather not.",
-    sm_point_1:"Installable as an app, works offline", sm_point_2:"Residents update their own house, you approve",
-    sm_point_3:"Secure admin with passkeys, self-hosted", sm_link:"View Sint Maarten",
+    apps_eyebrow:"Self-hosted web apps",
+    apps_h2:"Small apps you run yourself.",
+    apps_lead:"Each one runs on your own server with Docker, so your data stays with you. Browse the code on GitHub.",
+    apps_tag:"Self-hosted web app",
+    apps_link:"View on GitHub",
+    apps_prev:"Previous app",
+    apps_next:"Next app",
+    dm_p:"An interactive neighbourhood map that shows which houses are happy to receive Halloween visitors and which would rather not.",
+    dm_1:"Installable as an app, works offline",
+    dm_2:"Residents update their own house, you approve",
+    dm_3:"Secure admin with passkeys",
+    ms_p:"Turn your Mealie week menu into a full basket at Albert Heijn, Picnic or Jumbo.",
+    ms_1:"From week menu to supermarket basket",
+    ms_2:"Offers matched to your recipes",
+    ms_3:"Works with AI assistants (MCP)",
+    pp_p:"Work out what a 3D print really costs, keep track of your filament stock and turn customer orders into invoices.",
+    pp_1:"Cost price per print: filament, energy, wear",
+    pp_2:"Filament library and stock",
+    pp_3:"Orders and invoices",
     phil_eyebrow:"How we work", phil_h2:"Software should make room for the work.",
     phil_1_k:"Purpose-built", phil_1_p:"Each app solves a clear problem without piling on distractions.",
     phil_2_k:"Transparent about data", phil_2_p:"We use only the data a product needs and make clear what happens to it and who controls it.",
@@ -516,10 +629,25 @@ const I18N = {
     market_lead:"Laat klanten thuis al zien wat er vandaag op je kraam ligt. Je eigen website, eenvoudig bijgewerkt vanaf je telefoon.",
     market_point_1:"Je eigen herkenbare website", market_point_2:"Aanbiedingen bijwerken vanaf je telefoon",
     market_point_3:"Geen technische kennis nodig", market_link:"Bekijk Marktkraam.site",
-    sm_eyebrow:"Wijk-webapp (PWA)", sm_h2:"Sint Maarten, in kaart gebracht.",
-    sm_lead:"Een interactieve wijkkaart die laat zien welke huizen graag Sint Maarten-bezoek ontvangen en welke liever niet.",
-    sm_point_1:"Installeerbaar als app, werkt offline", sm_point_2:"Bewoners passen hun eigen huis aan, jij keurt goed",
-    sm_point_3:"Veilig beheer met passkeys, zelf te hosten", sm_link:"Bekijk Sint Maarten",
+    apps_eyebrow:"Zelf te hosten webapps",
+    apps_h2:"Kleine apps die je zelf draait.",
+    apps_lead:"Elke app draait op je eigen server met Docker, zodat je data bij jou blijft. Bekijk de code op GitHub.",
+    apps_tag:"Zelf te hosten webapp",
+    apps_link:"Bekijk op GitHub",
+    apps_prev:"Vorige app",
+    apps_next:"Volgende app",
+    dm_p:"Een interactieve wijkkaart die laat zien welke huizen graag Halloween-bezoek ontvangen en welke liever niet.",
+    dm_1:"Installeerbaar als app, werkt offline",
+    dm_2:"Bewoners passen hun eigen huis aan, jij keurt goed",
+    dm_3:"Veilig beheer met passkeys",
+    ms_p:"Zet je weekmenu uit Mealie om in een volle boodschappenmand bij Albert Heijn, Picnic of Jumbo.",
+    ms_1:"Van weekmenu naar supermarktmandje",
+    ms_2:"Aanbiedingen die passen bij je recepten",
+    ms_3:"Werkt met AI-assistenten (MCP)",
+    pp_p:"Reken uit wat een 3D-print echt kost, houd je filamentvoorraad bij en maak van klantbestellingen facturen.",
+    pp_1:"Kostprijs per print: filament, energie, slijtage",
+    pp_2:"Filamentbibliotheek en voorraad",
+    pp_3:"Bestellingen en facturen",
     phil_eyebrow:"Werkwijze", phil_h2:"Software moet ruimte maken voor het werk.",
     phil_1_k:"Doelgericht gebouwd", phil_1_p:"Elke app lost een duidelijk probleem op zonder afleiding toe te voegen.",
     phil_2_k:"Transparant over data", phil_2_p:"We gebruiken alleen de data die een product nodig heeft en maken duidelijk wat ermee gebeurt en wie er controle over heeft.",
@@ -554,10 +682,25 @@ const I18N = {
     market_lead:"Zeige deinen Kunden schon zu Hause, was heute an deinem Stand angeboten wird. Deine eigene Website, einfach vom Smartphone aus aktualisiert.",
     market_point_1:"Deine eigene unverwechselbare Website", market_point_2:"Angebote vom Smartphone aus aktualisieren",
     market_point_3:"Keine technischen Kenntnisse erforderlich", market_link:"Marktkraam.site entdecken",
-    sm_eyebrow:"Nachbarschafts-Web-App (PWA)", sm_h2:"Sankt Martin, auf der Karte.",
-    sm_lead:"Eine interaktive Karte der Nachbarschaft, die zeigt, welche Häuser sich über Sankt-Martins-Besuch freuen und welche lieber nicht.",
-    sm_point_1:"Als App installierbar, funktioniert offline", sm_point_2:"Bewohner ändern ihr eigenes Haus, du genehmigst",
-    sm_point_3:"Sicherer Admin-Bereich mit Passkeys, selbst gehostet", sm_link:"Sint Maarten ansehen",
+    apps_eyebrow:"Selbstgehostete Web-Apps",
+    apps_h2:"Kleine Apps, die du selbst betreibst.",
+    apps_lead:"Jede läuft auf deinem eigenen Server mit Docker, sodass deine Daten bei dir bleiben. Den Code findest du auf GitHub.",
+    apps_tag:"Selbstgehostete Web-App",
+    apps_link:"Auf GitHub ansehen",
+    apps_prev:"Vorherige App",
+    apps_next:"Nächste App",
+    dm_p:"Eine interaktive Nachbarschaftskarte, die zeigt, welche Häuser sich über Halloween-Besuch freuen und welche lieber nicht.",
+    dm_1:"Als App installierbar, funktioniert offline",
+    dm_2:"Bewohner ändern ihr eigenes Haus, du genehmigst",
+    dm_3:"Sicherer Admin-Bereich mit Passkeys",
+    ms_p:"Mach aus deinem Mealie-Wochenmenü einen vollen Warenkorb bei Albert Heijn, Picnic oder Jumbo.",
+    ms_1:"Vom Wochenmenü zum Supermarkt-Warenkorb",
+    ms_2:"Angebote passend zu deinen Rezepten",
+    ms_3:"Funktioniert mit KI-Assistenten (MCP)",
+    pp_p:"Finde heraus, was ein 3D-Druck wirklich kostet, behalte deinen Filamentbestand im Blick und mach aus Kundenbestellungen Rechnungen.",
+    pp_1:"Selbstkosten pro Druck: Filament, Energie, Verschleiß",
+    pp_2:"Filamentbibliothek und Bestand",
+    pp_3:"Bestellungen und Rechnungen",
     phil_eyebrow:"Arbeitsweise", phil_h2:"Software sollte Raum für die Arbeit schaffen.",
     phil_1_k:"Gezielt entwickelt", phil_1_p:"Jede App löst ein klares Problem, ohne neue Ablenkungen zu schaffen.",
     phil_2_k:"Transparenter Umgang mit Daten", phil_2_p:"Wir verwenden nur die Daten, die ein Produkt benötigt, und machen transparent, was mit ihnen geschieht und wer die Kontrolle darüber hat.",
@@ -592,10 +735,25 @@ const I18N = {
     market_lead:"Montrez à vos clients, avant leur venue, ce que vous proposez aujourd'hui sur votre étal. Votre propre site web, facile à mettre à jour depuis votre téléphone.",
     market_point_1:"Votre propre site web reconnaissable", market_point_2:"Mettez à jour les offres depuis votre téléphone",
     market_point_3:"Aucune connaissance technique requise", market_link:"Découvrir Marktkraam.site",
-    sm_eyebrow:"Application web de quartier (PWA)", sm_h2:"Sint Maarten, sur la carte.",
-    sm_lead:"Une carte interactive du quartier qui montre quelles maisons accueillent volontiers les visiteurs de la Saint-Martin et lesquelles préfèrent s'abstenir.",
-    sm_point_1:"Installable comme application, fonctionne hors ligne", sm_point_2:"Les habitants modifient leur propre maison, vous validez",
-    sm_point_3:"Administration sécurisée par passkeys, auto-hébergée", sm_link:"Découvrir Sint Maarten",
+    apps_eyebrow:"Applications web auto-hébergées",
+    apps_h2:"De petites applications que vous hébergez vous-même.",
+    apps_lead:"Chacune tourne sur votre propre serveur avec Docker, pour que vos données restent chez vous. Le code est disponible sur GitHub.",
+    apps_tag:"Application web auto-hébergée",
+    apps_link:"Voir sur GitHub",
+    apps_prev:"Application précédente",
+    apps_next:"Application suivante",
+    dm_p:"Une carte interactive du quartier qui montre quelles maisons accueillent volontiers les visiteurs d'Halloween et lesquelles préfèrent s'abstenir.",
+    dm_1:"Installable comme application, fonctionne hors ligne",
+    dm_2:"Les habitants modifient leur propre maison, vous validez",
+    dm_3:"Administration sécurisée par passkeys",
+    ms_p:"Transformez votre menu de la semaine Mealie en panier complet chez Albert Heijn, Picnic ou Jumbo.",
+    ms_1:"Du menu de la semaine au panier du supermarché",
+    ms_2:"Des promotions adaptées à vos recettes",
+    ms_3:"Compatible avec les assistants IA (MCP)",
+    pp_p:"Calculez ce que coûte vraiment une impression 3D, suivez votre stock de filament et transformez les commandes clients en factures.",
+    pp_1:"Prix de revient par impression : filament, énergie, usure",
+    pp_2:"Bibliothèque de filaments et stock",
+    pp_3:"Commandes et factures",
     phil_eyebrow:"Notre approche", phil_h2:"Le logiciel doit laisser de la place au travail.",
     phil_1_k:"Conçu pour un objectif", phil_1_p:"Chaque application résout un problème clair sans ajouter de distractions.",
     phil_2_k:"Transparence des données", phil_2_p:"Nous utilisons uniquement les données nécessaires au produit et expliquons clairement ce qu'elles deviennent et qui les contrôle.",
@@ -642,6 +800,9 @@ function applyLang(lang){
   document.querySelectorAll("[data-i18n-html]").forEach(el=>{
     const v = t[el.dataset.i18nHtml]; if(v != null) el.innerHTML = v;
   });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{
+    const v = t[el.dataset.i18nAria]; if(v != null) el.setAttribute("aria-label", v);
+  });
 
   const curFlag = document.getElementById("lang-flag");
   if(curFlag) curFlag.innerHTML = FLAGS[lang] || "";
@@ -671,6 +832,42 @@ function applyLang(lang){
   });
   document.addEventListener("click", close);
   document.addEventListener("keydown", e => { if(e.key === "Escape") close(); });
+})();
+
+(function initCarousel(){
+  const track = document.getElementById("car-track");
+  if(!track) return;
+  const slides = Array.from(track.querySelectorAll(".app-slide"));
+  const dots = document.getElementById("car-dots");
+  const btns = slides.map((sl,i)=>{
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "car-dot"; b.textContent = sl.getAttribute("aria-label");
+    b.addEventListener("click", ()=>go(i));
+    li.appendChild(b); dots.appendChild(li); return b;
+  });
+  let cur = 0;
+  const mark = i => { cur = i; btns.forEach((b,j)=>{ if(j===i) b.setAttribute("aria-current","true"); else b.removeAttribute("aria-current"); }); };
+  const go = i => {
+    const n = (i + slides.length) % slides.length;
+    track.scrollTo({left: slides[n].offsetLeft - track.offsetLeft, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    mark(n);
+  };
+  document.getElementById("car-prev").addEventListener("click", ()=>go(cur-1));
+  document.getElementById("car-next").addEventListener("click", ()=>go(cur+1));
+  track.addEventListener("keydown", e=>{
+    if(e.key === "ArrowRight"){ e.preventDefault(); go(cur+1); }
+    else if(e.key === "ArrowLeft"){ e.preventDefault(); go(cur-1); }
+  });
+  let t;
+  track.addEventListener("scroll", ()=>{
+    clearTimeout(t);
+    t = setTimeout(()=>{
+      const w = slides[0].getBoundingClientRect().width + 18;
+      mark(Math.max(0, Math.min(slides.length-1, Math.round(track.scrollLeft / w))));
+    }, 60);
+  }, {passive:true});
+  mark(0);
 })();
 
 document.getElementById("yr").textContent = new Date().getFullYear();
