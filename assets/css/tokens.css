@@ -1,0 +1,29 @@
+/*
+ * Flux76 — company brand tokens
+ * Company brand only. Individual apps define their own tokens under
+ * ../apps/<app-name>/. Do not assume these are the default for every app.
+ */
+:root {
+  /* Neutrals */
+  --flux76-ink: #0B0A18;        /* primary background */
+  --flux76-ink-2: #12112A;      /* elevated background / gradients */
+  --flux76-ink-2-alt: #0C0B22;  /* icon tiles / deep panels */
+  --flux76-surface: #171633;    /* cards, surfaces */
+  --flux76-line: #2A284D;       /* borders, dividers */
+  --flux76-text: #ECEBF6;       /* primary text */
+  --flux76-body: #C7C6DD;       /* secondary body text */
+  --flux76-muted: #8C8AB0;      /* labels, captions */
+
+  /* Accent stops */
+  --flux76-aqua: #2FE6D6;
+  --flux76-violet: #6C5CE7;
+  --flux76-magenta: #FF4D9D;
+
+  /* Signature gradient — use sparingly */
+  --flux76-flux: linear-gradient(90deg, #2FE6D6 0%, #6C5CE7 52%, #FF4D9D 100%);
+
+  /* Typography */
+  --flux76-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --flux76-font-utility: 'JetBrains Mono', monospace;
+  --flux76-font-body: 'Inter', system-ui, sans-serif;
+}
