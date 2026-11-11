@@ -57,7 +57,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%;scrollbar-color:var(--rule-strong) var(--bg)}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%;scrollbar-color:var(--rule-strong) var(--bg)}
 body{background:var(--bg);color:var(--fg-body);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
 ::selection{background:var(--flux76-violet);color:#fff}
 img,svg{display:block;max-width:100%}
@@ -139,6 +139,10 @@ html:not(.js) .theme-btn{display:none}
 
 /* ── Sections ────────────────────────────────────────────────────── */
 .sec{padding:var(--sec) 0}
+/* A menu link lands with the heading just under the bar: skip most of the section's own top padding,
+   so neither a strip of the previous block nor a half-empty screen shows. */
+.sec,.contact{scroll-margin-top:calc(clamp(40px,5vw,64px) - var(--sec))}
+.case,.apps{scroll-margin-top:clamp(24px,4vw,48px)}
 .band{background:var(--bg-2)}
 .sec-head{display:grid;gap:22px;margin-bottom:clamp(56px,7vw,96px)}
 .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,104px);align-items:start}
