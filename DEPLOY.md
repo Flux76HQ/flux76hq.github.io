@@ -1,6 +1,6 @@
 # Flux76.com — live zetten via GitHub Pages (Flux76HQ)
 
-De site is een statische pagina (`index.html` + wat assets), dus GitHub Pages is perfect. Twee delen: (A) repo + Pages aanzetten, (B) je domein `flux76.com` koppelen.
+De site is statisch (twee gegenereerde pagina's, `index.html` en `nl/index.html`, plus assets), dus GitHub Pages is perfect. Twee delen: (A) repo + Pages aanzetten, (B) je domein `flux76.com` koppelen.
 
 ---
 
@@ -79,7 +79,6 @@ GitHub maakt automatisch de redirect tussen `flux76.com` en `www.flux76.com`.
 
 ---
 
-## Nog aanpassen in de site (optioneel)
-- **App Store-links** toevoegen zodra je apps live zijn (nu wijzen de knoppen naar de projecten/GitHub).
-- **Bluesky/Discord-links** invullen in de footer (nu placeholders).
-- `flux76.app` later als aparte app-landingssite opzetten (eigen repo + dat domein), of laten doorverwijzen naar `flux76.com/#projects` voorlopig.
+## De site aanpassen
+`index.html` en `nl/index.html` worden gegenereerd; bewerk ze niet met de hand. Zie
+[`README.md`](README.md) voor het aanpassen van teksten, het bouwen en de controles.
