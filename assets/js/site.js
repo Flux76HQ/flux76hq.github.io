@@ -10,6 +10,41 @@
     if (m[1] !== 'nl' && isNl) { location.replace('/' + location.hash); return; }
   }
 
+  // Light or dark: follows the device until the visitor chooses, then remembers the choice.
+  var root = document.documentElement;
+  var themeBtn = document.querySelector('.theme-btn');
+  var system = window.matchMedia('(prefers-color-scheme: dark)');
+  function chosen() { var t = root.getAttribute('data-theme'); return t === 'light' || t === 'dark' ? t : null; }
+  function current() { return chosen() || (system.matches ? 'dark' : 'light'); }
+  function paint() {
+    var forced = chosen(), theme = current();
+    // <picture> sources and theme-color follow the device by media query; pin them when a choice is made.
+    document.querySelectorAll('picture source[data-scheme], picture source[media*="prefers-color-scheme"]').forEach(function (s) {
+      s.setAttribute('data-scheme', 'dark');
+      s.media = forced ? (forced === 'dark' ? 'all' : 'not all') : '(prefers-color-scheme: dark)';
+    });
+    document.querySelectorAll('meta[data-theme-color]').forEach(function (m) {
+      var scheme = m.getAttribute('data-theme-color');
+      m.media = forced ? (forced === scheme ? 'all' : 'not all') : '(prefers-color-scheme: ' + scheme + ')';
+    });
+    if (themeBtn) {
+      var label = theme === 'dark' ? themeBtn.dataset.toLight : themeBtn.dataset.toDark;
+      themeBtn.querySelector('span').textContent = label;
+      themeBtn.setAttribute('aria-label', label);
+      themeBtn.querySelector('use').setAttribute('href', theme === 'dark' ? '#i-sun' : '#i-moon');
+    }
+  }
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('flux76_theme', next); } catch (e) { /* choice lasts for this page only */ }
+      paint();
+    });
+  }
+  if (system.addEventListener) system.addEventListener('change', paint);
+  paint();
+
   // Mobile menu
   var nav = document.querySelector('.nav');
   var toggle = document.querySelector('.nav-toggle');
