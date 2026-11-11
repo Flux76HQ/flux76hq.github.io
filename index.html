@@ -24,8 +24,8 @@
 <meta name="twitter:description" content="iOS apps, web apps and websites you stay in control of. Tell us about your project.">
 <meta name="twitter:image" content="https://flux76.com/og-image.png">
 <meta name="twitter:image:alt" content="Flux76">
-<meta name="theme-color" content="#F8F7FB" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0A18" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F8F7FB" media="(prefers-color-scheme: light)" data-theme-color="light">
+<meta name="theme-color" content="#0B0A18" media="(prefers-color-scheme: dark)" data-theme-color="dark">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://flux76.com/">
 <link rel="alternate" hreflang="en" href="https://flux76.com/">
@@ -37,7 +37,7 @@
 <link rel="preload" href="/assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/site.css">
-<script>document.documentElement.className='js'</script>
+<script>document.documentElement.className='js';try{var t=localStorage.getItem('flux76_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script src="/assets/js/site.js" defer></script>
 <script type="application/ld+json">
 {
@@ -168,6 +168,8 @@
   <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16L17 7M9 7h8v8"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5.5 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
 </defs></svg>
 
@@ -182,6 +184,7 @@
     <a href="#process">Process</a>
     <a href="#about">About</a>
     <a class="nav-lang" href="/nl/" hreflang="nl" lang="nl">Nederlands</a>
+    <button class="theme-btn" type="button" data-to-dark="Dark mode" data-to-light="Light mode"><svg aria-hidden="true"><use href="#i-moon"/></svg><span>Dark mode</span></button>
   </nav>
   <div class="nav-actions">
     <a class="btn btn-primary btn-sm" href="#contact">Start a project</a>

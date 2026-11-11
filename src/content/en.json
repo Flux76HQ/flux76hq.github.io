@@ -100,5 +100,7 @@
   "foot_products": "Products",
   "foot_follow": "Follow",
   "foot_contact": "Contact",
-  "foot_copyright": "independent software studio · Netherlands"
+  "foot_copyright": "independent software studio · Netherlands",
+  "theme_to_dark": "Dark mode",
+  "theme_to_light": "Light mode"
 }
