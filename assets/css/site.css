@@ -3,9 +3,7 @@
    The light scheme is derived from those tokens with color-mix(); do not
    hardcode brand hex values here. */
 
-@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('/assets/fonts/space-grotesk-latin-600-normal.woff2') format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/inter-latin-400-normal.woff2') format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url('/assets/fonts/inter-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url('/assets/fonts/archivo-latin-wdth-normal.woff2') format('woff2')}
 @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2')}
 
 :root{
@@ -22,7 +20,7 @@
   --btn-bg-hover:color-mix(in srgb,var(--flux76-ink) 82%,var(--flux76-violet));
   --shot-shadow:0 1px 2px rgba(11,10,24,.06),0 24px 60px -28px rgba(11,10,24,.32);
 
-  --display:var(--flux76-font-display);--sans:var(--flux76-font-body);--mono:var(--flux76-font-utility);
+  --display:var(--flux76-font-display);--sans:var(--flux76-font-body);--mono:var(--flux76-font-utility);--stretch:var(--flux76-font-display-stretch);
   --maxw:1280px;--gut:clamp(20px,4vw,48px);
   --sec:clamp(88px,12vw,176px);
   --ease:cubic-bezier(.16,1,.3,1);
@@ -73,23 +71,23 @@ strong{font-weight:700;color:var(--fg)}
 .grad{background:var(--flux76-flux);-webkit-background-clip:text;background-clip:text;color:transparent}
 .i{width:1.15em;height:1.15em;flex:none}
 
-h1,h2,h3,h4{font-family:var(--display);font-weight:600;color:var(--fg);text-wrap:balance}
-h1{font-size:clamp(2.75rem,6.6vw,5.25rem);line-height:.98;letter-spacing:-.04em;max-width:15ch}
-h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.03;letter-spacing:-.035em;max-width:17ch}
+h1,h2,h3,h4{font-family:var(--display);font-stretch:var(--stretch);font-weight:600;color:var(--fg);text-wrap:balance}
+h1{font-size:clamp(2.125rem,6.6vw,5.25rem);line-height:1;letter-spacing:-.03em;max-width:15ch}
+h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.05;letter-spacing:-.025em;max-width:17ch}
 .lead{font-size:clamp(1.0625rem,1.45vw,1.25rem);line-height:1.55;max-width:56ch;text-wrap:pretty}
 
 /* ── Buttons and links ───────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 26px;border:1px solid transparent;border-radius:999px;font-family:var(--display);font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:background-color .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 26px;border:1px solid transparent;border-radius:999px;font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:1rem;line-height:1.2;text-decoration:none;cursor:pointer;transition:background-color .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
 .btn .i{transition:transform .18s var(--ease)}
 .btn-primary{background:var(--btn-bg);color:var(--btn-fg)}
 .btn-primary:hover{background:var(--btn-bg-hover)}
 .btn-primary:hover .i{transform:translateX(3px)}
 .btn-ghost{background:transparent;color:var(--fg);border-color:var(--rule-strong)}
 .btn-ghost:hover{border-color:var(--fg)}
-.btn-sm{min-height:44px;padding:8px 20px;font-size:.9375rem}
+.btn-sm{min-height:44px;padding:8px 20px;font-size:.9375rem;white-space:nowrap}
 .btn-lg{min-height:60px;padding:16px 30px;font-size:1.0625rem}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-family:var(--display);font-weight:600;font-size:1rem;color:var(--fg);text-decoration:underline;text-decoration-color:var(--rule-strong)}
+.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:1rem;color:var(--fg);text-decoration:underline;text-decoration-color:var(--rule-strong)}
 .more .i{color:var(--accent);transition:transform .18s var(--ease)}
 .more:hover{text-decoration-color:currentColor}
 .more:hover .i{transform:translateX(3px)}
@@ -98,7 +96,7 @@ h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.03;letter-spacing:-.035
 /* ── Navigation ──────────────────────────────────────────────────── */
 .nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--rule)}
 .nav-in{display:flex;align-items:center;gap:24px;min-height:72px}
-.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-family:var(--display);font-weight:600;font-size:1.375rem;letter-spacing:-.02em;color:var(--fg);text-decoration:none}
+.brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:1.375rem;letter-spacing:-.02em;color:var(--fg);text-decoration:none}
 .nav-main{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav-main a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-size:.9375rem;color:var(--fg-body);text-decoration:none;transition:color .18s}
 .nav-main a:hover{color:var(--fg);text-decoration:underline}
@@ -149,7 +147,7 @@ h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.03;letter-spacing:-.035
 .case-art.duo{padding-bottom:7%}
 .case-art .phone{width:21%;right:4%}
 .case-copy{display:grid;gap:16px;justify-items:start}
-.case-copy h3{font-size:clamp(2.125rem,4vw,3.25rem);line-height:1;letter-spacing:-.035em}
+.case-copy h3{font-size:clamp(2.125rem,4vw,3.25rem);line-height:1.02;letter-spacing:-.025em}
 .case-kind{font-size:.9375rem;color:var(--fg-muted)}
 .case-shows{padding-top:16px;border-top:1px solid var(--rule);font-size:1rem}
 .apps{margin-top:clamp(88px,11vw,152px);padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--fg)}
@@ -168,22 +166,22 @@ h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.03;letter-spacing:-.035
 /* Process */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(24px,3vw,48px)}
 .steps li{display:grid;align-content:start;gap:10px;padding-top:20px;border-top:1px solid var(--fg)}
-.step-n{font-family:var(--display);font-weight:600;font-size:clamp(2.5rem,4.4vw,3.75rem);line-height:1;letter-spacing:-.04em;color:var(--accent);margin-bottom:clamp(20px,3vw,44px)}
+.step-n{font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:clamp(2.5rem,4.4vw,3.75rem);line-height:1;letter-spacing:-.04em;color:var(--accent);margin-bottom:clamp(20px,3vw,44px)}
 .steps h3{font-size:1.4375rem;letter-spacing:-.02em}
 .steps p{font-size:1rem}
 
 /* About */
 .about-body{display:grid;gap:20px}
-.about-body .lead:first-child{font-family:var(--display);font-weight:600;font-size:clamp(1.375rem,2.2vw,1.875rem);line-height:1.25;letter-spacing:-.02em;color:var(--fg);max-width:34ch}
+.about-body .lead:first-child{font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:clamp(1.375rem,2.2vw,1.875rem);line-height:1.25;letter-spacing:-.02em;color:var(--fg);max-width:34ch}
 .values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px clamp(24px,4vw,56px);margin-top:32px;padding-top:36px;border-top:1px solid var(--rule)}
-.values dt{font-family:var(--display);font-weight:600;font-size:1.1875rem;color:var(--fg);margin-bottom:6px}
+.values dt{font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:1.1875rem;color:var(--fg);margin-bottom:6px}
 .values dd{font-size:1rem}
 
 /* Contact — the closing band is always ink, in both schemes */
 .contact{padding:var(--sec) 0 clamp(72px,9vw,128px)}
 .contact-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(40px,6vw,104px);align-items:end}
 .contact-copy{display:grid;gap:24px;justify-items:start}
-.contact-copy h2{font-size:clamp(2.75rem,7.6vw,6rem);line-height:.98;letter-spacing:-.04em;max-width:11ch}
+.contact-copy h2{font-size:clamp(2.75rem,7.6vw,6rem);line-height:1;letter-spacing:-.03em;max-width:11ch}
 .contact-copy .btns{margin-top:12px}
 .contact-addr{font-family:var(--mono);font-size:.9375rem;color:var(--fg-muted)}
 .contact-addr a{display:inline-flex;align-items:center;min-height:44px}
@@ -193,7 +191,7 @@ html:not(.js) [data-copy]{display:none}
 .contact-ask h3{font-size:1.25rem}
 .contact-ask ol{counter-reset:q;border-top:1px solid var(--rule)}
 .contact-ask li{counter-increment:q;display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);color:var(--fg)}
-.contact-ask li::before{content:counter(q);font-family:var(--display);font-weight:600;color:var(--accent)}
+.contact-ask li::before{content:counter(q);font-family:var(--display);font-stretch:var(--stretch);font-weight:600;color:var(--accent)}
 .contact-support{margin-top:8px;font-size:.9375rem;color:var(--fg-muted)}
 
 /* Footer */
@@ -202,7 +200,7 @@ html:not(.js) [data-copy]{display:none}
 .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-top:48px;border-top:1px solid var(--rule)}
 .foot-brand p{margin-top:10px;max-width:30ch;font-size:.9375rem;color:var(--fg-muted)}
 .foot-cols{display:flex;flex-wrap:wrap;gap:32px clamp(32px,6vw,88px)}
-.foot-cols h2{font-family:var(--sans);font-weight:400;font-size:.875rem;letter-spacing:0;color:var(--fg-muted);margin-bottom:8px;max-width:none}
+.foot-cols h2{font-family:var(--sans);font-stretch:100%;font-weight:400;font-size:.875rem;letter-spacing:0;color:var(--fg-muted);margin-bottom:8px;max-width:none}
 .foot-cols a{display:flex;align-items:center;min-height:36px;font-size:.9375rem;color:var(--fg);text-decoration:none}
 .foot-cols a:hover{text-decoration:underline}
 .copyright{margin-top:56px;font-size:.8125rem;color:var(--fg-muted)}
@@ -220,15 +218,15 @@ html:not(.js) [data-copy]{display:none}
   .nav-toggle{display:inline-flex}
   .nav-actions{margin-left:auto}
   .nav-main{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:4px var(--gut) 12px;background:var(--bg);border-bottom:1px solid var(--rule)}
-  .nav-main a{min-height:54px;padding:0;font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--fg);border-bottom:1px solid var(--rule)}
+  .nav-main a{min-height:54px;padding:0;font-family:var(--display);font-stretch:var(--stretch);font-weight:600;font-size:1.25rem;color:var(--fg);border-bottom:1px solid var(--rule)}
   .nav-main a:last-child{border-bottom:0}
-  .nav-main .nav-lang{font-family:var(--sans);font-weight:400;font-size:1rem}
+  .nav-main .nav-lang{font-family:var(--sans);font-stretch:100%;font-weight:400;font-size:1rem}
   .js .nav-main{display:none}
   .js .nav.open .nav-main{display:flex}
   html:not(.js) .nav{position:static}
   html:not(.js) .nav-in{flex-wrap:wrap;row-gap:0}
   html:not(.js) .nav-main{position:static;flex-direction:row;flex-wrap:wrap;padding:0 0 8px;border:0;order:3;flex-basis:100%}
-  html:not(.js) .nav-main a{border:0;padding:0 16px 0 0;min-height:44px;font-family:var(--sans);font-weight:400;font-size:.9375rem}
+  html:not(.js) .nav-main a{border:0;padding:0 16px 0 0;min-height:44px;font-family:var(--sans);font-stretch:100%;font-weight:400;font-size:.9375rem}
   html:not(.js) .nav-toggle{display:none}
 }
 @media (max-width:699px){
@@ -244,7 +242,9 @@ html:not(.js) [data-copy]{display:none}
 }
 @media (max-width:440px){
   .hero .btn{width:100%}
-  .btn-sm{padding:8px 16px}
+  .btn-sm{padding:8px 14px;font-size:.875rem}
+  .nav-in{gap:12px}
+  .brand{font-size:1.25rem;gap:8px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

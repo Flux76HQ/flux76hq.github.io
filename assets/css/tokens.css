@@ -23,7 +23,8 @@
   --flux76-flux: linear-gradient(90deg, #2FE6D6 0%, #6C5CE7 52%, #FF4D9D 100%);
 
   /* Typography */
-  --flux76-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --flux76-font-display: 'Archivo', system-ui, sans-serif;
+  --flux76-font-display-stretch: 112%;  /* headings and the wordmark are set slightly wide */
   --flux76-font-utility: 'JetBrains Mono', monospace;
-  --flux76-font-body: 'Inter', system-ui, sans-serif;
+  --flux76-font-body: 'Archivo', system-ui, sans-serif;
 }

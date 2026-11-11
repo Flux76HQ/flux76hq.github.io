@@ -16,7 +16,7 @@ De website van Flux76, een app- en webstudio uit Nederland. Statische site op Gi
 | `scripts/check.py` | Controles (zie hieronder) |
 | `assets/css/tokens.css` | De Flux76-merktokens, overgenomen uit `App-Guidance/shared/branding/flux76/` |
 | `assets/css/site.css`, `assets/js/site.js` | Stijl en gedrag van de site |
-| `assets/fonts/` | Zelf gehoste lettertypen (met licenties) |
+| `assets/fonts/` | Zelf gehoste lettertypen met licenties: Archivo (één variabel bestand voor koppen en tekst) en JetBrains Mono |
 | `assets/img/` | Screenshots als WebP |
 
 `index.html` en `nl/index.html` zijn **gegenereerd en staan toch in de repo**: GitHub Pages
