@@ -110,7 +110,7 @@ h2{font-size:clamp(2.125rem,4.6vw,3.75rem);line-height:1.03;letter-spacing:-.035
 .shot{border:1px solid var(--rule);border-radius:clamp(10px,1.4vw,18px);overflow:hidden;background:var(--bg-2);box-shadow:var(--shot-shadow)}
 .shot img,.phone img{width:100%}
 .duo{position:relative}
-.phone{position:absolute;right:5%;bottom:0;width:19%;border:clamp(3px,.5vw,7px) solid var(--flux76-ink);border-radius:13.5% / 6.3%;overflow:hidden;background:var(--flux76-ink);box-shadow:0 30px 50px -24px rgba(11,10,24,.55)}
+.phone{position:absolute;right:5%;bottom:0;width:19%;border:clamp(3px,.5vw,7px) solid var(--flux76-ink);border-radius:14% / 6.5%;overflow:hidden;background:var(--flux76-ink);box-shadow:0 30px 50px -24px rgba(11,10,24,.55)}
 @media (prefers-color-scheme:dark){.phone{border-color:var(--flux76-line)}}
 
 /* ── Hero ────────────────────────────────────────────────────────── */

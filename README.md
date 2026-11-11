@@ -63,8 +63,8 @@ Mergen naar `main` zet de site live. DNS en Pages-instellingen staan in [`DEPLOY
 - Kleuren, lettertypen en het logo volgen `App-Guidance/shared/branding/flux76/brand.md`. Verwijs
   naar de tokens in `tokens.css`; zet geen losse merkkleuren in `site.css`. Het lichte kleurenschema
   is met `color-mix()` uit die tokens afgeleid; de site volgt het schema van de bezoeker.
-- De DiscVault-beelden komen uit `Flux76HQ/discvault.eu` (`media-source/screenshots/` en
-  `screenshots-light/`): de democollectie met verzonnen films en gegenereerde hoezen. Gebruik
+- De DiscVault-beelden komen uit `Flux76HQ/discvault.eu` (`media-source/screenshots/`,
+  `screenshots-light/` en, voor de telefoon, `screenshots-iphone/`): de democollectie met verzonnen films en gegenereerde hoezen. Gebruik
   geen screenshots met echte filmhoezen.
 - Elk themabeeld bestaat in `-light-` en `-dark-` en in twee breedtes; houd die namen aan bij
   vervangen, dan hoeft de template niet mee te veranderen.
