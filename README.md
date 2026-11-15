@@ -2,7 +2,8 @@
 
 De website van Flux76, een app- en webstudio uit Nederland. Statische site op GitHub Pages
 (`main`, map `/`), in het Engels op [flux76.com](https://flux76.com/) en in het Nederlands op
-[flux76.com/nl/](https://flux76.com/nl/).
+[flux76.com/nl/](https://flux76.com/nl/), met een privacyverklaring (`/privacy/`, `/nl/privacy/`) en
+voorwaarden (`/terms/`, `/nl/voorwaarden/`).
 
 *The Flux76 company website: a static site on GitHub Pages, in English at `/` and Dutch at `/nl/`.*
 
@@ -10,16 +11,20 @@ De website van Flux76, een app- en webstudio uit Nederland. Statische site op Gi
 
 | Pad | Wat |
 |---|---|
-| `src/index.template.html` | De ene template voor beide talen |
-| `src/content/en.json`, `nl.json` | Alle tekst, per taal |
-| `scripts/build.py` | Maakt `index.html` en `nl/index.html` uit template + tekst |
+| `src/index.template.html` | De homepage, voor beide talen |
+| `src/legal.template.html` | De privacyverklaring en de voorwaarden, voor beide talen |
+| `src/partials/` | Wat alle pagina's delen: kop, navigatie, voettekst; ingevoegd met `{{> naam}}` |
+| `src/content/en.json`, `nl.json` | Alle korte tekst, per taal |
+| `src/legal/<taal>/privacy.html`, `terms.html` | De tekst van de juridische pagina's, als HTML |
+| `scripts/build.py` | Maakt alle pagina's uit template + tekst; de lijst staat in `PAGES` |
 | `scripts/check.py` | Controles (zie hieronder) |
 | `assets/css/tokens.css` | De Flux76-merktokens, overgenomen uit `App-Guidance/shared/branding/flux76/` |
 | `assets/css/site.css`, `assets/js/site.js` | Stijl en gedrag van de site |
 | `assets/fonts/` | Zelf gehoste lettertypen met licenties: Archivo (één variabel bestand voor koppen en tekst) en JetBrains Mono |
 | `assets/img/` | Screenshots als WebP |
 
-`index.html` en `nl/index.html` zijn **gegenereerd en staan toch in de repo**: GitHub Pages
+`index.html`, `nl/index.html` en de juridische pagina's (`privacy/`, `terms/`, `nl/privacy/`,
+`nl/voorwaarden/`) zijn **gegenereerd en staan toch in de repo**: GitHub Pages
 serveert de repo zoals hij is, dus er is geen deploy-stap die ze voor ons kan bouwen. Bewerk ze
 niet met de hand.
 
@@ -29,6 +34,17 @@ niet met de hand.
 2. `python3 scripts/build.py`
 3. `python3 scripts/check.py`
 4. Commit de bron en de gegenereerde pagina's samen.
+
+## De privacyverklaring of voorwaarden aanpassen
+
+1. Pas `src/legal/nl/<document>.html` **en** `src/legal/en/<document>.html` aan.
+2. Zet in `scripts/build.py` de datum `updated` van dat document (`PRIVACY` of `TERMS`) op vandaag; die
+   staat bovenaan de pagina als "Laatst bijgewerkt".
+3. Zet `lastmod` in `sitemap.xml` voor beide talen op dezelfde datum.
+4. Bouw, controleer en commit zoals hierboven.
+
+Verandert de site zelf iets aan wat hij verwerkt (analytics, een formulier, een ingesloten dienst van
+een andere partij, een nieuwe hoster), werk dan in dezelfde wijziging de privacyverklaring bij.
 
 Alleen Python 3 is nodig; er zijn geen dependencies.
 
