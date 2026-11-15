@@ -2,13 +2,15 @@
 """Checks for Flux76.com. Run locally and in CI: python3 scripts/check.py
 
 1. The committed pages match what scripts/build.py generates.
-2. en.json and nl.json have the same keys, every key is used by the template,
+2. en.json and nl.json have the same keys, every key is used by a template,
    no value is empty, and no value is the same in both languages unless listed
    in SAME_IN_BOTH (a completeness check alone misses untranslated text).
 3. Every page is in sitemap.xml and every sitemap entry is a page.
 4. In each page: in-page anchors point at an existing id, local files exist,
    and nothing is loaded from another host (fonts, images, scripts, styles).
-5. Each page declares the same hreflang alternates.
+5. Each page declares en, nl and x-default alternates that point at pages,
+   name the page itself for its own language, and match its other-language
+   version. Both languages have the same legal documents.
 """
 import re
 import sys
@@ -74,7 +76,7 @@ def check_content():
 
 def check_sitemap():
     locs = set(re.findall(r"<loc>(.*?)</loc>", (ROOT / "sitemap.xml").read_text(encoding="utf-8")))
-    pages = {SITE + "/" + rel.removesuffix("index.html") for rel in build.PAGES.values()}
+    pages = {SITE + p.path for p in build.PAGES}
     for url in sorted(pages - locs):
         fail(f"sitemap: {url} is a page but not in sitemap.xml")
     for url in sorted(locs - pages):
@@ -83,8 +85,9 @@ def check_sitemap():
 
 
 def check_pages(pages):
-    alternates = []
-    for rel in build.PAGES.values():
+    alternates = {}
+    for page in build.PAGES:
+        rel = page.out
         p = Page()
         p.feed((ROOT / rel).read_text(encoding="utf-8"))
         for anchor in p.anchors:
@@ -99,12 +102,21 @@ def check_pages(pages):
                 target = target / "index.html"
             if not target.is_file():
                 fail(f"{rel}: {url} does not exist")
-        alternates.append(p.hreflang)
+        alternates[page.path] = p.hreflang
         for lang, href in p.hreflang.items():
             if href not in pages:
                 fail(f"{rel}: hreflang {lang} points at {href}, which is not a page")
-    if any(a != alternates[0] or len(a) < 3 for a in alternates):
-        fail("hreflang: pages do not declare the same en, nl and x-default alternates")
+        if set(p.hreflang) != {"en", "nl", "x-default"}:
+            fail(f"{rel}: declares hreflang {sorted(p.hreflang)}, expected en, nl and x-default")
+        elif p.hreflang[page.lang] != SITE + page.path:
+            fail(f"{rel}: hreflang {page.lang} does not point at the page itself")
+    for page in build.PAGES:
+        other = page.nl_path if page.lang == "en" else page.en_path
+        if other in alternates and alternates[other] != alternates[page.path]:
+            fail(f"hreflang: {page.path} and {other} declare different alternates")
+    docs = {lang: {f.stem for f in (build.LEGAL / lang).glob("*.html")} for lang in ("en", "nl")}
+    if docs["en"] != docs["nl"]:
+        fail(f"legal: documents differ between languages: en {sorted(docs['en'])}, nl {sorted(docs['nl'])}")
     for css in (ROOT / "assets" / "css").glob("*.css"):
         for url in re.findall(r"url\(\s*['\"]?([^'\")]+)", css.read_text(encoding="utf-8")):
             if re.match(r"(https?:)?//", url):
@@ -126,8 +138,8 @@ def main():
 
 def _stale():
     return any(
-        not (ROOT / rel).exists() or (ROOT / rel).read_text(encoding="utf-8") != build.render(lang)
-        for lang, rel in build.PAGES.items()
+        not (ROOT / p.out).exists() or (ROOT / p.out).read_text(encoding="utf-8") != build.render(p)
+        for p in build.PAGES
     )
 
 

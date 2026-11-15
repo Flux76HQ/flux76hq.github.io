@@ -220,6 +220,22 @@ html:not(.js) [data-copy]{display:none}
 .copyright{margin-top:56px;font-size:.8125rem;color:var(--fg-muted)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .foot.ink{border-top:0}}
 
+/* ── Legal pages (privacy statement, terms) ──────────────────────── */
+.legal-page{padding:clamp(48px,7vw,104px) 0 var(--sec)}
+.legal{max-width:72ch}
+.legal-head{display:grid;gap:16px;padding-bottom:clamp(28px,4vw,44px);margin-bottom:clamp(28px,4vw,44px);border-bottom:1px solid var(--rule)}
+.legal-head h1{font-size:clamp(2.125rem,5.4vw,4rem);max-width:none}
+.legal-meta{font-size:.9375rem;color:var(--fg-muted)}
+.legal > .lead{margin-bottom:clamp(8px,1.5vw,16px);color:var(--fg)}
+.legal section{display:grid;gap:14px;padding-top:clamp(28px,3.6vw,40px)}
+.legal h2{font-size:clamp(1.375rem,2.2vw,1.75rem);line-height:1.2;letter-spacing:-.015em;max-width:none}
+.legal p,.legal li{text-wrap:pretty}
+.legal ul{display:grid;gap:10px;padding-left:1.25em;list-style:disc}
+.legal li::marker{color:var(--accent)}
+.legal a{color:var(--fg);text-decoration-color:var(--rule-strong);overflow-wrap:anywhere}
+.legal a:hover{text-decoration-color:currentColor}
+.legal code{font-family:var(--mono);font-size:.875em;padding:.1em .35em;border-radius:6px;background:var(--bg-2);color:var(--fg)}
+
 /* ── Responsive ──────────────────────────────────────────────────── */
 @media (max-width:999px){
   .split,.case,.contact-in{grid-template-columns:minmax(0,1fr)}

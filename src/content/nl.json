@@ -1,10 +1,7 @@
 {
   "_lang": "nl",
-  "_path": "/nl/",
   "_og_locale": "nl_NL",
   "_og_locale_alt": "en_US",
-  "_alt_lang": "en",
-  "_alt_path": "/",
   "_alt_label": "English",
   "meta_title": "Flux76 — app- en webstudio uit Nederland",
   "meta_desc": "Flux76 is een onafhankelijke studio uit Nederland die iOS-apps, webapps en websites ontwerpt en bouwt waar jij de regie over houdt.",
@@ -102,5 +99,12 @@
   "foot_contact": "Contact",
   "foot_copyright": "onafhankelijke softwarestudio · Nederland",
   "theme_to_dark": "Donkere weergave",
-  "theme_to_light": "Lichte weergave"
+  "theme_to_light": "Lichte weergave",
+  "foot_legal": "Juridisch",
+  "foot_kvk": "KvK 42123156",
+  "privacy_title": "Privacyverklaring",
+  "privacy_desc": "Hoe Flux76 omgaat met persoonsgegevens op flux76.com en als je ons mailt: geen analytics, geen trackingcookies en alleen wat een antwoord nodig heeft.",
+  "terms_title": "Voorwaarden",
+  "terms_desc": "De voorwaarden voor het gebruik van flux76.com: wat de informatie op de site betekent, van wie die is en welk recht geldt.",
+  "legal_updated": "Laatst bijgewerkt"
 }

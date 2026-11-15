@@ -10,6 +10,9 @@ Flux76 is an app and web studio. It designs and builds iOS apps, web apps and we
 - Official app catalog: https://flux76.app/
 - Location: Netherlands
 - Contact, including new projects and app support: info@flux76.com
+- Dutch Chamber of Commerce (KvK) number: 42123156
+- Privacy statement: https://flux76.com/privacy/ (English), https://flux76.com/nl/privacy/ (Dutch)
+- Terms of use: https://flux76.com/terms/ (English), https://flux76.com/nl/voorwaarden/ (Dutch)
 - GitHub organization: https://github.com/Flux76HQ
 
 ## Services

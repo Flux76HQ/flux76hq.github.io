@@ -4,12 +4,36 @@
     <loc>https://flux76.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/"/>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-15</lastmod>
   </url>
   <url>
     <loc>https://flux76.com/nl/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/"/>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://flux76.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/privacy/"/>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://flux76.com/nl/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/privacy/"/>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://flux76.com/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/voorwaarden/"/>
+    <lastmod>2026-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://flux76.com/nl/voorwaarden/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://flux76.com/terms/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://flux76.com/nl/voorwaarden/"/>
+    <lastmod>2026-11-15</lastmod>
   </url>
 </urlset>

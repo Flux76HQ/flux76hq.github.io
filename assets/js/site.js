@@ -5,9 +5,9 @@
   // Old links used ?lang=xx on a single URL. Languages now have their own pages.
   var m = /[?&]lang=([a-z]{2})\b/.exec(location.search);
   if (m) {
-    var isNl = document.documentElement.lang === 'nl';
-    if (m[1] === 'nl' && !isNl) { location.replace('/nl/' + location.hash); return; }
-    if (m[1] !== 'nl' && isNl) { location.replace('/' + location.hash); return; }
+    var want = m[1] === 'nl' ? 'nl' : 'en';
+    var alt = document.querySelector('link[rel="alternate"][hreflang="' + want + '"]');
+    if (want !== document.documentElement.lang && alt) { location.replace(new URL(alt.href).pathname + location.hash); return; }
   }
 
   // Light or dark: follows the device until the visitor chooses, then remembers the choice.
